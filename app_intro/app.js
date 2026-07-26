@@ -131,8 +131,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ========== Mobile menu ========== */
     const mobileMenu = document.getElementById('mobileMenu');
-    document.querySelectorAll('#mobileMenu a').forEach(a => {
-        a.addEventListener('click', () => mobileMenu && mobileMenu.classList.remove('open'));
-    });
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+        const closeBtn = mobileMenu.querySelector('.close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        }
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) mobileMenu.classList.remove('open');
+        });
+    }
 
 });

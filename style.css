@@ -777,9 +777,10 @@ footer {
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 999;
+    z-index: 9999;
     background: rgba(10,10,20,0.97);
     backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -789,6 +790,9 @@ footer {
     background: rgba(248,249,252,0.97);
 }
 .mobile-menu.open { display: flex; }
+/* 点击蒙层背景也可关闭 */
+.mobile-menu.open { cursor: pointer; }
+.mobile-menu > * { cursor: default; }
 .mobile-menu a {
     color: var(--text-dim); text-decoration: none;
     font-size: 18px; font-weight: 600;
@@ -800,6 +804,7 @@ footer {
     position: absolute; top: 20px; right: 20px;
     background: none; border: none; color: var(--text-dim);
     cursor: pointer; padding: 8px;
+    z-index: 1;
 }
 
 /* hamburger */
@@ -808,6 +813,8 @@ footer {
     flex-direction: column; gap: 5px;
     background: none; border: none;
     cursor: pointer; padding: 8px;
+    position: relative;
+    z-index: 100000;
 }
 .hamburger span {
     display: block; width: 22px; height: 2px;

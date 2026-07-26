@@ -160,10 +160,24 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ========== 4. Mobile menu toggle ========== */
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu) {
-        document.querySelectorAll('#mobileMenu a').forEach(a => {
+        // 点击链接关闭
+        mobileMenu.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 mobileMenu.classList.remove('open');
             });
+        });
+        // 点击关闭按钮
+        const closeBtn = mobileMenu.querySelector('.close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        }
+        // 点击背景（蒙层本身）关闭
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('open');
+            }
         });
     }
 
