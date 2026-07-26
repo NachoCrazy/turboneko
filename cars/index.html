@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurboNeko Studio — 四车产品线</title>
+    <link rel="stylesheet" href="../style.css?v=4">
+    <link rel="stylesheet" href="cars.css?v=1">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+    <!-- ======== Top Nav ======== -->
+    <nav>
+        <a href="../" class="logo">TurboNek<b>o</b></a>
+        <div class="nav-links">
+            <a href="../" data-i18n="nav_home">首页</a>
+            <a href="./" class="active" data-i18n="nav_cars">四车产品线</a>
+            <a href="../app_intro/" data-i18n="nav_app">SoulMate</a>
+            <a href="../game_intro/" data-i18n="nav_game">同人游戏</a>
+        </div>
+        <div class="nav-controls">
+            <button class="nav-lang-switch" id="langSwitch" title="Switch Language">
+                <span class="lang-active" id="langLabel">中文</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ======== Hero ======== -->
+    <section class="cars-hero">
+        <div class="cars-hero-inner">
+            <p class="cars-hero-sub">TURBONEKO STUDIO</p>
+            <h1 class="cars-hero-title">
+                <span class="hero-word word-speed" data-i18n="cars_hero1">四种性格，</span>
+                <span class="hero-word word-meets" data-i18n="cars_hero2">一种本能。</span>
+            </h1>
+            <p class="cars-hero-desc" data-i18n="cars_hero_desc">
+                TurboNeko 不局限于制造单一类型的汽车。我们坚信，人们的驾驶渴望从不只有一种形态——有时是优雅从容，有时是激情澎湃，有时是内敛克制，有时是纯粹本真。因此，我们打造了四款车型，分别代表四种驾驶人格。
+            </p>
+        </div>
+    </section>
+
+    <!-- ======== Car Cards Grid ======== -->
+    <section class="cars-grid-section">
+        <div class="cars-grid">
+
+            <!-- NEKO GT -->
+            <a href="./neko-gt/" class="car-card fade-up">
+                <div class="car-card-img">
+                    <img src="./neko-gt/car.png" alt="NEKO GT">
+                    <div class="car-card-badge" data-i18n="car_gt_badge">GT 轿跑</div>
+                </div>
+                <div class="car-card-info">
+                    <h3>NEKO GT</h3>
+                    <p class="car-card-sub">Grand Tourer of Elegance</p>
+                    <p class="car-card-desc" data-i18n="car_gt_desc">为「流动感」而生的电动GT轿跑。不追求极致速度的张扬，而是致力于在高速驰骋中展现从容气度。</p>
+                    <div class="car-card-specs">
+                        <div class="car-spec"><span class="car-spec-val">680kW</span><span class="car-spec-label" data-i18n="spec_power">功率</span></div>
+                        <div class="car-spec"><span class="car-spec-val">2.3s</span><span class="car-spec-label" data-i18n="spec_accel">0-100</span></div>
+                        <div class="car-spec"><span class="car-spec-val">700km</span><span class="car-spec-label" data-i18n="spec_range">续航</span></div>
+                    </div>
+                    <span class="car-card-link" data-i18n="car_detail">查看详情 →</span>
+                </div>
+            </a>
+
+            <!-- RZ-01 -->
+            <a href="./rz-01/" class="car-card fade-up delay-1">
+                <div class="car-card-img">
+                    <img src="./rz-01/car.png" alt="RZ-01 Shadow Cat">
+                    <div class="car-card-badge" data-i18n="car_rz_badge">JDM 性能</div>
+                </div>
+                <div class="car-card-info">
+                    <h3>RZ-01 Shadow Cat</h3>
+                    <p class="car-card-sub">Pure JDM Driving Machine</p>
+                    <p class="car-card-desc" data-i18n="car_rz_desc">回归驾驶本质的JDM性能座驾。没有多余的修饰，没有妥协的设计，没有冗余的科技包装。它存在的意义只有一个：为驾驶而生。</p>
+                    <div class="car-card-specs">
+                        <div class="car-spec"><span class="car-spec-val">380HP</span><span class="car-spec-label" data-i18n="spec_power">功率</span></div>
+                        <div class="car-spec"><span class="car-spec-val">FR</span><span class="car-spec-label" data-i18n="spec_drive">驱动</span></div>
+                        <div class="car-spec"><span class="car-spec-val">1250kg</span><span class="car-spec-label" data-i18n="spec_weight">整备</span></div>
+                    </div>
+                    <span class="car-card-link" data-i18n="car_detail">查看详情 →</span>
+                </div>
+            </a>
+
+            <!-- UR-01 -->
+            <a href="./ur-01/" class="car-card fade-up delay-2">
+                <div class="car-card-img">
+                    <img src="./ur-01/car.png" alt="UR-01 Urban Raider">
+                    <div class="car-card-badge" data-i18n="car_ur_badge">双人格 SUV</div>
+                </div>
+                <div class="car-card-info">
+                    <h3>UR-01 Urban Raider</h3>
+                    <p class="car-card-sub">Dual Personality Performance SUV</p>
+                    <p class="car-card-desc" data-i18n="car_ur_desc">外表沉稳克制、内在强劲有力的双人格SUV。既可以是家庭日常通勤的得力助手，也能化身为释放激情的性能猛兽。</p>
+                    <div class="car-card-specs">
+                        <div class="car-spec"><span class="car-spec-val">600HP</span><span class="car-spec-label" data-i18n="spec_power">功率</span></div>
+                        <div class="car-spec"><span class="car-spec-val">3.5s</span><span class="car-spec-label" data-i18n="spec_accel">0-100</span></div>
+                        <div class="car-spec"><span class="car-spec-val">AWD</span><span class="car-spec-label" data-i18n="spec_drive">驱动</span></div>
+                    </div>
+                    <span class="car-card-link" data-i18n="car_detail">查看详情 →</span>
+                </div>
+            </a>
+
+            <!-- H-01 -->
+            <a href="./h-01/" class="car-card fade-up delay-3">
+                <div class="car-card-img">
+                    <img src="./h-01/car.png" alt="H-01 Phantom Strike">
+                    <div class="car-card-badge" data-i18n="car_h_badge">Hypercar</div>
+                </div>
+                <div class="car-card-info">
+                    <h3>H-01 Phantom Strike</h3>
+                    <p class="car-card-sub">Hypercar of Silence and Power</p>
+                    <p class="car-card-desc" data-i18n="car_h_desc">TurboNeko的终极之作，一款游走于现实边界的超跑。它并非为日常使用而设计，而是用来定义品牌的极限。</p>
+                    <div class="car-card-specs">
+                        <div class="car-spec"><span class="car-spec-val">1550HP</span><span class="car-spec-label" data-i18n="spec_power">功率</span></div>
+                        <div class="car-spec"><span class="car-spec-val">2.3s</span><span class="car-spec-label" data-i18n="spec_accel">0-100</span></div>
+                        <div class="car-spec"><span class="car-spec-val">1380kg</span><span class="car-spec-label" data-i18n="spec_weight">整备</span></div>
+                    </div>
+                    <span class="car-card-link" data-i18n="car_detail">查看详情 →</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ======== Philosophy ======== -->
+    <section class="cars-philosophy">
+        <div class="philosophy-inner">
+            <h2 class="fade-up" data-i18n="cars_philo_title">四种性格，一种本能</h2>
+            <div class="philosophy-grid">
+                <div class="philo-card fade-up">
+                    <span class="philo-icon">🚗</span>
+                    <h4 data-i18n="car_gt_badge">GT：优雅的速度</h4>
+                    <p data-i18n="cars_philo_gt">优雅地超越一切。速度静谧无声，却从不含糊迟疑。</p>
+                </div>
+                <div class="philo-card fade-up delay-1">
+                    <span class="philo-icon">🏁</span>
+                    <h4 data-i18n="car_rz_badge">RZ：纯粹的驾驶</h4>
+                    <p data-i18n="cars_philo_rz">驾驶本身，就是答案。它是为弯道而生的机械艺术品。</p>
+                </div>
+                <div class="philo-card fade-up delay-2">
+                    <span class="philo-icon">🚙</span>
+                    <h4 data-i18n="car_ur_badge">SUV：现实的多面性</h4>
+                    <p data-i18n="cars_philo_ur">一台车，两种人生。在不同的人生场景中自如切换角色。</p>
+                </div>
+                <div class="philo-card fade-up delay-3">
+                    <span class="philo-icon">🏎️</span>
+                    <h4 data-i18n="car_h_badge">HYPER：极限的表达</h4>
+                    <p data-i18n="cars_philo_h">速度的终点，不需要解释。它本身就是卓越的成果。</p>
+                </div>
+            </div>
+            <p class="philosophy-quote fade-up" data-i18n="cars_philo_quote">
+                TurboNeko does not build cars. It builds driving instincts.
+            </p>
+        </div>
+    </section>
+
+    <!-- ======== Footer ======== -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>TurboNek<b>o</b></h4>
+                <p data-i18n="footer_desc">独立开发工作室，专注于 AI 陪伴应用、游戏开发与软件工具。</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_links">友情链接</h4>
+                <a href="https://space.bilibili.com/1800466245" target="_blank" rel="noopener">Bilibili</a>
+                <a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_contact">联系方式</h4>
+                <p>Email: nachocrazy@outlook.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 TurboNeko Studio. All rights reserved. 琉璃猫猫！</p>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=4"></script>
+    <script src="cars.js?v=1"></script>
+</body>
+</html>

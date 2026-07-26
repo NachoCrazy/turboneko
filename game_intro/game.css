@@ -1,0 +1,430 @@
+/* ===== BA Fan Game Intro — game.css ===== */
+
+/* ---------- Game Hero ---------- */
+.game-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 56px 80px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.game-hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(251,191,36,0.10), transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(139,92,246,0.08), transparent 50%),
+        var(--bg);
+}
+
+.game-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 640px;
+}
+
+.game-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px; height: 88px;
+    border-radius: 24px;
+    background: rgba(251,191,36,0.12);
+    border: 1px solid rgba(251,191,36,0.20);
+    backdrop-filter: blur(12px);
+    margin-bottom: 32px;
+}
+.game-icon {
+    font-size: 40px;
+}
+
+.game-hero-title {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+.game-hero-title .text-gradient {
+    background: linear-gradient(135deg, #FCD34D, var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.game-hero-subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.game-hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 36px;
+}
+.badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--primary-light);
+    background: rgba(139,92,246,0.12);
+    border: 1px solid rgba(139,92,246,0.18);
+}
+
+.game-hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hero-btn-ghost {
+    background: rgba(255,255,255,0.03) !important;
+    border-color: rgba(255,255,255,0.10) !important;
+}
+
+/* ---------- Game Section ---------- */
+.game-section {
+    padding: 100px 56px;
+    border-top: 1px solid var(--border);
+}
+.game-section-alt {
+    background: var(--bg-card);
+}
+
+.game-section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.game-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.game-section-header h2 {
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 800;
+    margin-top: 16px;
+    color: var(--text);
+}
+
+.game-section-text {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+.game-section-text h2 {
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 800;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    color: var(--text);
+}
+.game-section-text h2 .highlight {
+    color: var(--primary);
+}
+.game-section-text p {
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+.game-section-text p strong {
+    color: var(--text);
+}
+
+/* ---------- Story Cards ---------- */
+.story-content {
+    display: grid;
+    gap: 20px;
+}
+
+.story-card {
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    transition: all 0.35s;
+    position: relative;
+}
+.story-card:hover {
+    border-color: rgba(251,191,36,0.30);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--card-hover-shadow);
+}
+.story-card-num {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(251,191,36,0.08);
+    line-height: 1;
+}
+.story-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+.story-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.8;
+}
+
+/* ---------- Features Grid ---------- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    transition: all 0.35s;
+}
+.game-section-alt .feature-card {
+    background: var(--bg-card);
+}
+.feature-card:hover {
+    border-color: rgba(139,92,246,0.30);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px var(--card-hover-shadow);
+}
+
+.feature-icon {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--service-icon-bg);
+    margin-bottom: 18px;
+    transition: all 0.3s;
+}
+.feature-card:hover .feature-icon {
+    border-color: rgba(139,92,246,0.30);
+    background: rgba(139,92,246,0.08);
+}
+.feature-icon svg {
+    width: 22px; height: 22px;
+    color: var(--primary-light);
+}
+
+.feature-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+.feature-card p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+}
+
+/* ---------- Progress Timeline ---------- */
+.progress-timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 40px;
+}
+.progress-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+}
+
+.progress-item {
+    position: relative;
+    padding-bottom: 32px;
+}
+.progress-item:last-child {
+    padding-bottom: 0;
+}
+
+.progress-dot {
+    position: absolute;
+    left: -32px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    z-index: 1;
+}
+.progress-item.done .progress-dot {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+.progress-item.active .progress-dot {
+    background: #FCD34D;
+    border-color: #FCD34D;
+    box-shadow: 0 0 12px rgba(251,191,36,0.4);
+}
+
+.progress-content {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    transition: all 0.3s;
+}
+.progress-item.done .progress-content {
+    border-color: rgba(139,92,246,0.15);
+}
+.progress-item.active .progress-content {
+    border-color: rgba(251,191,36,0.30);
+    background: rgba(251,191,36,0.04);
+}
+.progress-content:hover {
+    border-color: rgba(139,92,246,0.30);
+}
+
+.progress-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-light);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+.progress-item.active .progress-date {
+    color: #FCD34D;
+}
+
+.progress-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+.progress-content p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.progress-status {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.progress-item.done .progress-status {
+    background: rgba(34,197,94,0.12);
+    color: #22C55E;
+}
+.progress-item.active .progress-status {
+    background: rgba(251,191,36,0.12);
+    color: #FCD34D;
+}
+.progress-item:not(.done):not(.active) .progress-status {
+    background: rgba(156,163,175,0.12);
+    color: var(--text-muted);
+}
+
+/* ---------- Progress Stats ---------- */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 28px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+}
+.stat-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+.stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* ---------- Back Link ---------- */
+.game-back-section {
+    padding: 60px 56px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+.game-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+.game-back-link:hover {
+    border-color: var(--primary);
+    color: var(--primary-light);
+    background: rgba(139,92,246,0.06);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .game-hero { padding: 120px 32px 80px; }
+    .game-section { padding: 80px 32px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .game-hero { padding: 100px 20px 60px; min-height: auto; }
+    .game-hero-title { font-size: clamp(28px, 8vw, 40px); }
+    .game-hero-subtitle { font-size: 14px; }
+    .game-hero-badges { gap: 6px; }
+    .badge { font-size: 10px; padding: 4px 10px; }
+    .game-hero-actions { flex-direction: column; align-items: center; }
+    .game-section { padding: 60px 20px; }
+    .game-section-header h2, .game-section-text h2 { font-size: clamp(22px, 5vw, 28px); }
+    .features-grid { grid-template-columns: 1fr; }
+    .progress-stats { grid-template-columns: 1fr; gap: 16px; }
+    .game-back-section { padding: 40px 20px; }
+}
+
+@media (max-width: 480px) {
+    .game-hero { padding: 80px 16px 48px; }
+    .game-icon-wrap { width: 64px; height: 64px; border-radius: 18px; }
+    .game-icon { font-size: 28px; }
+    .story-card { padding: 20px 16px; }
+    .story-card-num { font-size: 36px; }
+    .progress-content { padding: 16px; }
+    .stat-num { font-size: 28px; }
+}

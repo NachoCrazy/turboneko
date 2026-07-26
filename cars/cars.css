@@ -1,0 +1,293 @@
+/* ========== Cars Overview Page ========== */
+
+/* Hero */
+.cars-hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 180px 40px 80px;
+    background: radial-gradient(ellipse at 50% 40%, rgba(139,92,246,0.12) 0%, transparent 70%);
+}
+.cars-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cars-hero-sub {
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--primary-light);
+    margin-bottom: 28px;
+    opacity: 0.8;
+}
+.cars-hero-title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    color: var(--text);
+}
+.cars-hero-desc {
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 2;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* Hero word animations */
+.cars-hero-title .hero-word {
+    display: inline-block;
+    opacity: 1;
+    transform: translateX(0) translateY(0) skewX(0);
+    transition: opacity 0.75s cubic-bezier(.22,1,.36,1),
+                transform 0.75s cubic-bezier(.22,1,.36,1);
+}
+.js-enabled .cars-hero-title .hero-word {
+    opacity: 0;
+}
+.js-enabled .cars-hero-title .hero-word.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0) skewX(0);
+}
+.js-enabled .cars-hero-title .word-speed {
+    transform: translateX(-80px) skewX(-12deg);
+}
+.js-enabled .cars-hero-title .word-meets {
+    transform: translateY(60px);
+}
+.js-enabled .cars-hero-title .word-style {
+    transform: translateX(80px) skewX(12deg);
+}
+.cars-hero-title .hero-word.delay-1 { transition-delay: 0.15s; }
+.cars-hero-title .hero-word.delay-2 { transition-delay: 0.35s; }
+
+.cars-hero-desc {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s 0.5s, transform 0.6s 0.5s;
+}
+.js-enabled .cars-hero-desc {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.js-enabled .cars-hero-desc.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Car Cards Grid */
+.cars-grid-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.car-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(.22,1,.36,1);
+    position: relative;
+}
+.car-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(139,92,246,0.3);
+    box-shadow: 0 20px 60px rgba(139,92,246,0.12);
+}
+.car-card-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #0a0a0f;
+}
+.car-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(.22,1,.36,1);
+}
+.car-card:hover .car-card-img img {
+    transform: scale(1.04);
+}
+.car-card-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    background: rgba(139,92,246,0.25);
+    border: 1px solid rgba(139,92,246,0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--primary-light);
+    text-transform: uppercase;
+}
+.car-card-info {
+    padding: 24px 28px 28px;
+}
+.car-card-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.car-card-sub {
+    font-size: 12px;
+    color: var(--primary-light);
+    opacity: 0.7;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+.car-card-desc {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.car-card-specs {
+    display: flex;
+    gap: 24px;
+    padding: 16px 0 18px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.car-spec {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.car-spec-val {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-light);
+}
+.car-spec-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.car-card-link {
+    font-size: 13px;
+    color: var(--primary-light);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+.car-card:hover .car-card-link {
+    letter-spacing: 2px;
+}
+
+/* Philosophy Section */
+.cars-philosophy {
+    padding: 100px 40px;
+    background: rgba(139,92,246,0.03);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    text-align: center;
+}
+.philosophy-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.cars-philosophy h2 {
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 700;
+    margin-bottom: 56px;
+    color: var(--text);
+}
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+}
+.philo-card {
+    padding: 32px 20px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    transition: all 0.3s;
+}
+.philo-card:hover {
+    border-color: rgba(139,92,246,0.25);
+    background: rgba(139,92,246,0.04);
+}
+.philo-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 16px;
+}
+.philo-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-light);
+}
+.philo-card p {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    line-height: 1.7;
+}
+.philosophy-quote {
+    font-size: clamp(16px, 2.2vw, 22px);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--primary-light);
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Fade-up (override for this page) */
+.fade-up {
+    opacity: 1;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(.22,1,.36,1),
+                transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+.js-enabled .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+.js-enabled .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cars-grid {
+        grid-template-columns: 1fr;
+    }
+    .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 640px) {
+    .cars-hero {
+        padding: 140px 20px 60px;
+    }
+    .cars-grid-section,
+    .cars-philosophy {
+        padding: 60px 16px;
+    }
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+    .car-card-specs {
+        gap: 16px;
+    }
+}

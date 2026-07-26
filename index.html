@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurboNeko Studio - Speed Meets Style</title>
+    <link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+
+<!-- ========== 导航栏 ========== -->
+<nav>
+    <div class="nav-left">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-img-wrap">
+                <img src="logo.png" alt="TurboNeko Studio">
+            </div>
+        </a>
+    </div>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+            <li><a href="cars/" data-i18n="nav_cars">Cars</a></li>
+            <li><a href="#techstack" data-i18n="nav_techstack">Tech Stack</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-lang-switch" id="langSwitch" title="Switch Language">
+                <span class="lang-active" id="langLabel">中文</span>
+            </button>
+        </div>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- 移动端菜单 -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+    </button>
+    <a href="#home" data-i18n="nav_home">Home</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="#techstack" data-i18n="nav_techstack">Tech Stack</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+</div>
+
+<!-- ========== Hero ========== -->
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="hero-word word-speed fade-up">Speed</span><br>
+            <span class="hero-word word-meets fade-up">Meets</span> <span class="hero-word word-style fade-up">Style.</span>
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+            我们将二次元的幻想、汽车的速度与<br>
+            科技的未来感融合，创造独特的视觉与体验。
+        </p>
+        <a href="#projects" class="hero-btn">
+            <span data-i18n="hero_btn">Explore More</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+    <a href="#about" class="scroll-down">
+        <span data-i18n="scroll_down">Scroll Down</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+    </a>
+</section>
+
+<!-- ========== About ========== -->
+<section class="about" id="about">
+    <div class="about-inner">
+        <div class="about-left fade-up">
+            <div class="section-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                <span data-i18n="about_label">About Us</span>
+            </div>
+            <h2 class="about-title" data-i18n="about_title">
+                燃油在左，幻想在右。<br>
+                这里是 <span class="highlight">TurboNeko Studio.</span>
+            </h2>
+            <p class="about-desc" data-i18n="about_desc">
+                我们是一个将二次元幻想、硬核汽车文化与前沿科技完美融合的创意厂牌。<br>
+                既有涡轮增压般的爆发力与机械美学，<br>
+                也有猫咪般的灵动创意与破格思维。
+            </p>
+            <a href="#projects" class="about-btn">
+                <span data-i18n="about_btn">View Our Projects</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <p class="about-disclaimer" data-i18n="about_disclaimer">
+                本网站使用的蔚蓝档案相关角色二创图为非官方创作，仅作展示使用，未进行商业用途。
+            </p>
+        </div>
+        <div class="about-right fade-up delay-2">
+            <div>
+                <img src="logo.png" alt="TurboNeko Studio">
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                            <path d="M2 2l7.586 7.586"/>
+                            <circle cx="11" cy="11" r="2"/>
+                        </svg>
+                    </div>
+                    <div class="service-name" data-i18n="svc_design">视觉设计</div>
+                    <div class="service-en">Visual Design</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 16H9m10 0h3v-3.15a1 1 0 00-.84-.99L16 11l-2.7-3.6a1 1 0 00-.8-.4H5.24a2 2 0 00-1.8 1.1l-.8 1.63A6 6 0 002 12.42V16h2"/>
+                            <circle cx="6.5" cy="16.5" r="2.5"/>
+                            <circle cx="16.5" cy="16.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <div class="service-name" data-i18n="svc_auto">汽车文化</div>
+                    <div class="service-en">Auto Culture</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="6" width="20" height="12" rx="2"/>
+                            <path d="M6 12h4M14 12h4M8 10v4M16 10v4"/>
+                        </svg>
+                    </div>
+                    <div class="service-name" data-i18n="svc_game">游戏开发</div>
+                    <div class="service-en">Game Dev</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <rect x="9" y="9" width="6" height="6"/>
+                            <path d="M15 2v2M15 20v2M9 2v2M9 20v2M2 15h2M2 9h2M20 15h2M20 9h2"/>
+                        </svg>
+                    </div>
+                    <div class="service-name" data-i18n="svc_tech">科技产品</div>
+                    <div class="service-en">Tech & Gadgets</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== Projects ========== -->
+<section class="projects" id="projects">
+    <div class="projects-header">
+        <div class="section-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            <span data-i18n="projects_label">Our Projects</span>
+        </div>
+        <a href="https://github.com/nachocrazy" class="view-all" target="_blank" rel="noopener">
+            <span data-i18n="view_all">View on GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+    <div class="projects-grid">
+        <a href="/app_intro/" class="project-card fade-up delay-1">
+            <div class="project-img" data-emoji="💜">
+                <div class="project-tags">
+                    <span class="project-tag">Kotlin</span>
+                    <span class="project-tag">Compose</span>
+                </div>
+                <div class="project-num"><span>01</span></div>
+            </div>
+            <div class="project-info">
+                <div class="project-meta">
+                    <h4>SoulMate</h4>
+                    <p data-i18n="proj_soulmate">AI 陪伴应用</p>
+                </div>
+                <div class="project-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+        <a href="/game_intro/" class="project-card fade-up delay-2">
+            <div class="project-img" data-emoji="🏫">
+                <div class="project-tags">
+                    <span class="project-tag">Ren'Py</span>
+                    <span class="project-tag">Visual Novel</span>
+                </div>
+                <div class="project-num"><span>02</span></div>
+            </div>
+            <div class="project-info">
+                <div class="project-meta">
+                    <h4>BA Fan Game</h4>
+                    <p data-i18n="proj_ba">蔚蓝档案同人游戏</p>
+                </div>
+                <div class="project-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="project-card fade-up delay-3" onclick="return false">
+            <div class="project-img" data-emoji="🎵">
+                <div class="project-tags">
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">API</span>
+                </div>
+                <div class="project-num"><span>03</span></div>
+            </div>
+            <div class="project-info">
+                <div class="project-meta">
+                    <h4>NetEase Cloud Music</h4>
+                    <p data-i18n="proj_nemusic">网易云音乐本地版</p>
+                </div>
+                <div class="project-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="project-card fade-up delay-4" onclick="return false" style="pointer-events:none;">
+            <div class="project-img" data-emoji="✨">
+                <div class="project-tags">
+                    <span class="project-tag">TBD</span>
+                </div>
+                <div class="project-num"><span>04</span></div>
+            </div>
+            <div class="project-info">
+                <div class="project-meta">
+                    <h4>???</h4>
+                    <p data-i18n="proj_coming">敬请期待</p>
+                </div>
+                <div class="project-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ========== Tech Stack (placeholder section) ========== -->
+<section class="projects" id="techstack" style="background: var(--bg-card);">
+    <div class="projects-header">
+        <div class="section-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            <span data-i18n="tech_label">Tech Stack</span>
+        </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;text-align:center;padding:40px 0;">
+        <p style="color:var(--text-muted);font-size:14px;" data-i18n="tech_coming">Coming soon...</p>
+    </div>
+</section>
+
+<section class="easter-egg" id="rickroll" style="position:fixed;bottom:20px;right:20px;z-index:999;">
+    <div style="text-align:center; margin-top:20px;">
+        <button id="rickButton" class="hero-btn" style="background:#e50914;color:white;font-weight:bold;padding:8px 16px;border:none;border-radius:4px;cursor:pointer;">
+            看点…？
+        </button>
+    </div>
+</section>
+<!-- ========== Footer ========== -->
+<footer id="contact">
+    <div class="footer-inner">
+        <div class="footer-brand fade-up">
+            <div class="footer-logo-wrap">
+                <img src="logo.png" alt="TurboNeko Studio">
+            </div>
+            <p data-i18n="footer_desc">
+                致力于二次元文化、汽车文化与科技创意的跨界融合。<br>
+                通过视觉、产品与游戏，打造速度与风格并存的独特体验。
+            </p>
+        </div>
+        <div class="footer-col fade-up delay-1">
+            <h5 data-i18n="footer_links">Quick Links</h5>
+            <ul class="footer-links">
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="#techstack" data-i18n="nav_techstack">Tech Stack</a></li>
+                <li><a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:hello@nachocrazy.top" data-i18n="footer_contact_link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col fade-up delay-2">
+            <h5 data-i18n="footer_follow">Follow Us</h5>
+            <div class="social-icons">
+                <a href="https://github.com/nachocrazy" title="GitHub" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://space.bilibili.com/1800466245" title="Bilibili" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+                </a>
+                <a href="mailto:hello@nachocrazy.top" title="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                </a>
+            </div>
+            <h5 data-i18n="footer_contact">Contact</h5>
+            <div class="contact-info">
+                <p>hello@nachocrazy.top</p>
+                <p data-i18n="footer_location">Shanghai, China</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TurboNeko Studio. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js?v=4"></script>
+<script>
+document.getElementById('rickButton').onclick=function(){
+    window.open('https://vdse.bdstatic.com//192d9a98d782d9c74c96f09db9378d93.mp4?authorization=bce-auth-v1/40f207e648424f47b2e3dfbb1014b1a5/2021-07-12T02:14:24Z/-1/host/530146520a1c89fb727fbbdb8a0e0c98ec69955459aed4b1c8e00839187536c9','_blank');
+};
+</script>
+</body>
+</html>
