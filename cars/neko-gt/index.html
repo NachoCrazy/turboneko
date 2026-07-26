@@ -1,209 +1,258 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEKO GT — TurboNeko Studio</title>
-    <link rel="stylesheet" href="../../style.css?v=4">
-    <link rel="stylesheet" href="../cars.css?v=1">
-    <link rel="stylesheet" href="../detail.css?v=1">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <title>NEKO GT — 电动 GT 轿跑 | TurboNeko Studio</title>
+    <meta name="description" content="NEKO GT — 为「流动感」而生的电动 GT 轿跑。680kW 双电机，0-100km/h 2.3 秒，优雅地超越一切。">
+    <link rel="icon" href="../../avatar/logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="../../style.css?v=5">
+    <link rel="stylesheet" href="../cars.css?v=2">
+    <link rel="stylesheet" href="../detail.css?v=2">
 </head>
 <body>
-    <!-- ======== Nav ======== -->
-    <nav>
-        <a href="../../" class="logo">TurboNek<b>o</b></a>
-        <div class="nav-links">
-            <a href="../../" data-i18n="nav_home">首页</a>
-            <a href="../" class="active" data-i18n="nav_cars">四车产品线</a>
-            <a href="../../app_intro/" data-i18n="nav_app">SoulMate</a>
-            <a href="../../game_intro/" data-i18n="nav_game">同人游戏</a>
-        </div>
+
+<!-- ========== 导航栏 ========== -->
+<nav>
+    <div class="nav-left">
+        <a href="../../" class="nav-logo">
+            <div class="nav-logo-img-wrap">
+                <img src="../../logo.png" alt="TurboNeko Studio">
+            </div>
+        </a>
+    </div>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="../../" data-i18n="nav_home">首页</a></li>
+            <li><a href="../" class="active" data-i18n="nav_cars">四车产品线</a></li>
+            <li><a href="../../app_intro/" data-i18n="nav_app">SoulMate</a></li>
+            <li><a href="../../game_intro/" data-i18n="nav_game">同人游戏</a></li>
+        </ul>
         <div class="nav-controls">
             <button class="nav-lang-switch" id="langSwitch" title="Switch Language">
                 <span class="lang-active" id="langLabel">EN</span>
             </button>
         </div>
-    </nav>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
 
-    <!-- ======== Hero ======== -->
-    <section class="detail-hero">
-        <div class="detail-hero-bg">
-            <img src="car.png" alt="NEKO GT">
-        </div>
-        <div class="detail-hero-overlay"></div>
-        <div class="detail-hero-content">
-            <span class="detail-hero-badge" data-i18n="car_gt_badge">GT 轿跑</span>
-            <h1 class="detail-hero-name">NEKO GT</h1>
-            <p class="detail-hero-sub">Grand Tourer of Elegance</p>
-            <p class="detail-hero-tagline" data-i18n="car_gt_tag">优雅地超越一切。</p>
-        </div>
-        <div class="detail-hero-scroll">
-            <span data-i18n="scroll_hint">向下滚动探索</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
+<!-- 移动端菜单 -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+    </button>
+    <a href="../../">首页</a>
+    <a href="../">四车产品线</a>
+    <a href="../../app_intro/">SoulMate</a>
+    <a href="../../game_intro/">同人游戏</a>
+</div>
 
-    <!-- ======== Philosophy ======== -->
-    <section class="detail-section">
-        <div class="detail-inner">
-            <div class="detail-philosophy fade-up">
-                <p class="section-label" data-i18n="section_philo">设计理念</p>
-                <h2 data-i18n="car_gt_philo_title">为「流动感」而生的电动 GT 轿跑</h2>
-                <p class="philo-body" data-i18n="car_gt_philo_body">
-                    它不追求极致速度的张扬，而是致力于在高速驰骋中展现从容气度。
-                    速度静谧无声，却从不含糊迟疑。NEKO GT 代表的是——
-                </p>
-                <p class="philo-quote" data-i18n="car_gt_tag">优雅地超越一切。</p>
-            </div>
-        </div>
-    </section>
+<!-- ======== Hero ======== -->
+<section class="detail-hero">
+    <div class="detail-hero-bg">
+        <img src="car.png" alt="NEKO GT">
+    </div>
+    <div class="detail-hero-overlay"></div>
+    <div class="detail-hero-content">
+        <span class="detail-hero-badge" data-i18n="car_gt_badge">GT 轿跑</span>
+        <h1 class="detail-hero-name">NEKO GT</h1>
+        <p class="detail-hero-sub">Grand Tourer of Elegance</p>
+        <p class="detail-hero-tagline" data-i18n="car_gt_tag">优雅地超越一切。</p>
+    </div>
+    <div class="detail-hero-scroll">
+        <span data-i18n="scroll_hint">向下滚动探索</span>
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
 
-    <!-- ======== Specs ======== -->
-    <section class="detail-section specs-section">
-        <div class="detail-inner">
-            <p class="section-label fade-up" data-i18n="section_specs">技术规格</p>
-            <div class="specs-grid fade-up">
-                <div class="spec-card">
-                    <span class="spec-card-icon">⚡</span>
-                    <span class="spec-card-label" data-i18n="spec_layout">布局</span>
-                    <span class="spec-card-val">双电机四驱(前异步+后永磁同步)</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">🔋</span>
-                    <span class="spec-card-label" data-i18n="spec_power">功率</span>
-                    <span class="spec-card-val">620 kW / 843PS (后轴420kW + 前轴200kW)</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">💨</span>
-                    <span class="spec-card-label" data-i18n="spec_accel">0-100 km/h</span>
-                    <span class="spec-card-val">2.8 秒</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">📏</span>
-                    <span class="spec-card-label" data-i18n="spec_range">续航 (CLTC)</span>
-                    <span class="spec-card-val">510 km (CLTC)</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">🔌</span>
-                    <span class="spec-card-label" data-i18n="spec_charge">充电</span>
-                    <span class="spec-card-val">800V / 10-80% 12min</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">📐</span>
-                    <span class="spec-card-label" data-i18n="spec_size">车身尺寸</span>
-                    <span class="spec-card-val">5020 × 1995 × 1440 mm</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">📏</span>
-                    <span class="spec-card-label" data-i18n="spec_wheelbase">轴距</span>
-                    <span class="spec-card-val">3000 mm</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">⚙️</span>
-                    <span class="spec-card-label" data-i18n="spec_wheels">轮毂</span>
-                    <span class="spec-card-val">NEKO CLAW 21" 锻造</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======== Features ======== -->
-    <section class="detail-section features-section">
-        <div class="detail-inner">
-            <p class="section-label fade-up" data-i18n="section_features">核心特色</p>
-            <div class="features-grid fade-up">
-                <div class="feature-card">
-                    <div class="feature-num">01</div>
-                    <h4 data-i18n="car_gt_f1">低风阻溜背设计</h4>
-                    <p data-i18n="car_gt_f1d">流线型车身轮廓，风阻系数低至 0.21Cd，优雅与效能兼得。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-num">02</div>
-                    <h4 data-i18n="car_gt_f2">电动 GT 性能架构</h4>
-                    <p data-i18n="car_gt_f2d">前后双电机独立控制，精准分配扭矩，弯道中亦从容不迫。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-num">03</div>
-                    <h4 data-i18n="car_gt_f3">高速稳定与舒适并存</h4>
-                    <p data-i18n="car_gt_f3d">自适应空气悬挂，在运动性与长途舒适性之间无缝切换。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-num">04</div>
-                    <h4 data-i18n="car_gt_f4">NEKO EYES LED</h4>
-                    <p data-i18n="car_gt_f4d">锐利猫眼式 LED 大灯，配合点阵式 NEKO BREATH 欢迎灯效。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======== Design Detail ======== -->
-    <section class="detail-section design-section">
-        <div class="detail-inner">
-            <div class="design-showcase fade-up">
-                <div class="design-text">
-                    <p class="section-label" data-i18n="section_design">设计语言</p>
-                    <h2 data-i18n="car_gt_design_title">优雅，是最高级的速度</h2>
-                    <p data-i18n="car_gt_design_body">
-                        NEKO GT 的设计拒绝浮夸。每一根线条都在诉说速度，却不以喧嚣示人。
-                        参考了奥迪的优雅、BMW 的动态、奔驰的舒适——三位一体，造就了这台电动 GT 的独特气质。
-                        <br><br>
-                        车身采用银色主调，配合 NEKO 标志性的紫色光效氛围，
-                        在低调中蕴含锋芒。猫爪式锻造轮毂（NEKO CLAW）既是品牌标识，也是轻量化工程的艺术品。
-                    </p>
-                </div>
-                <div class="design-specs">
-                    <div class="design-spec-item">
-                        <span class="ds-label" data-i18n="spec_ref">设计参考</span>
-                        <span class="ds-val">Audi × BMW × Mercedes</span>
-                    </div>
-                    <div class="design-spec-item">
-                        <span class="ds-label" data-i18n="spec_light">灯语</span>
-                        <span class="ds-val">NEKO EYES + KITT 扫光尾灯</span>
-                    </div>
-                    <div class="design-spec-item">
-                        <span class="ds-label" data-i18n="spec_color">配色</span>
-                        <span class="ds-val">星云银 / 暗夜紫 / 珍珠白</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======== Quote Banner ======== -->
-    <section class="detail-quote-banner">
-        <div class="detail-inner">
-            <p class="quote-text fade-up" data-i18n="car_gt_quote">
-                「它的速度静谧无声，却从不含糊迟疑。」
+<!-- ======== Philosophy ======== -->
+<section class="detail-section">
+    <div class="detail-inner">
+        <div class="detail-philosophy fade-up">
+            <p class="section-label" data-i18n="section_philo">设计理念</p>
+            <h2 data-i18n="car_gt_philo_title">为「流动感」而生的电动 GT 轿跑</h2>
+            <p class="philo-body" data-i18n="car_gt_philo_body">
+                它不追求极致速度的张扬，而是致力于在高速驰骋中展现从容气度。
+                速度静谧无声，却从不含糊迟疑。NEKO GT 代表的是——
             </p>
-            <p class="quote-sub fade-up" data-i18n="car_gt_quote2">NEKO GT 代表的是：优雅地超越一切。</p>
+            <p class="philo-quote" data-i18n="car_gt_tag">优雅地超越一切。</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ======== Footer ======== -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-col">
-                <h4>TurboNek<b>o</b></h4>
-                <p data-i18n="footer_desc">独立开发工作室，专注于 AI 陪伴应用、游戏开发与软件工具。</p>
+<!-- ======== Specs ======== -->
+<section class="detail-section specs-section">
+    <div class="detail-inner">
+        <p class="section-label fade-up" data-i18n="section_specs">技术规格</p>
+        <div class="specs-grid fade-up">
+            <div class="spec-card">
+                <span class="spec-card-icon">⚡</span>
+                <span class="spec-card-label" data-i18n="spec_layout">布局</span>
+                <span class="spec-card-val">双电机四驱(前异步+后永磁同步)</span>
             </div>
-            <div class="footer-col">
-                <h4 data-i18n="footer_links">友情链接</h4>
-                <a href="https://space.bilibili.com/1800466245" target="_blank" rel="noopener">Bilibili</a>
-                <a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a>
+            <div class="spec-card">
+                <span class="spec-card-icon">🔋</span>
+                <span class="spec-card-label" data-i18n="spec_power">功率</span>
+                <span class="spec-card-val">620 kW / 843PS (后轴420kW + 前轴200kW)</span>
             </div>
-            <div class="footer-col">
-                <h4 data-i18n="footer_contact">联系方式</h4>
-                <p>Email: nachocrazy@outlook.com</p>
+            <div class="spec-card">
+                <span class="spec-card-icon">💨</span>
+                <span class="spec-card-label" data-i18n="spec_accel">0-100 km/h</span>
+                <span class="spec-card-val">2.8 秒</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">📏</span>
+                <span class="spec-card-label" data-i18n="spec_range">续航 (CLTC)</span>
+                <span class="spec-card-val">510 km (CLTC)</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">🔌</span>
+                <span class="spec-card-label" data-i18n="spec_charge">充电</span>
+                <span class="spec-card-val">800V / 10-80% 12min</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">📐</span>
+                <span class="spec-card-label" data-i18n="spec_size">车身尺寸</span>
+                <span class="spec-card-val">5020 × 1995 × 1440 mm</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">📏</span>
+                <span class="spec-card-label" data-i18n="spec_wheelbase">轴距</span>
+                <span class="spec-card-val">3000 mm</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">⚙️</span>
+                <span class="spec-card-label" data-i18n="spec_wheels">轮毂</span>
+                <span class="spec-card-val">NEKO CLAW 21" 锻造</span>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2024 TurboNeko Studio. All rights reserved. 琉璃猫猫！</p>
-        </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="../../script.js?v=4"></script>
-    <script src="../cars.js?v=1"></script>
-    <script src="../detail.js?v=1"></script>
+<!-- ======== Features ======== -->
+<section class="detail-section features-section">
+    <div class="detail-inner">
+        <p class="section-label fade-up" data-i18n="section_features">核心特色</p>
+        <div class="features-grid fade-up">
+            <div class="feature-card">
+                <div class="feature-num">01</div>
+                <h4 data-i18n="car_gt_f1">低风阻溜背设计</h4>
+                <p data-i18n="car_gt_f1d">流线型车身轮廓，风阻系数低至 0.21Cd，优雅与效能兼得。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-num">02</div>
+                <h4 data-i18n="car_gt_f2">电动 GT 性能架构</h4>
+                <p data-i18n="car_gt_f2d">前后双电机独立控制，精准分配扭矩，弯道中亦从容不迫。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-num">03</div>
+                <h4 data-i18n="car_gt_f3">高速稳定与舒适并存</h4>
+                <p data-i18n="car_gt_f3d">自适应空气悬挂，在运动性与长途舒适性之间无缝切换。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-num">04</div>
+                <h4 data-i18n="car_gt_f4">NEKO EYES LED</h4>
+                <p data-i18n="car_gt_f4d">锐利猫眼式 LED 大灯，配合点阵式 NEKO BREATH 欢迎灯效。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======== Design Detail ======== -->
+<section class="detail-section design-section">
+    <div class="detail-inner">
+        <div class="design-showcase fade-up">
+            <div class="design-text">
+                <p class="section-label" data-i18n="section_design">设计语言</p>
+                <h2 data-i18n="car_gt_design_title">优雅，是最高级的速度</h2>
+                <p data-i18n="car_gt_design_body">
+                    NEKO GT 的设计拒绝浮夸。每一根线条都在诉说速度，却不以喧嚣示人。
+                    参考了奥迪的优雅、BMW 的动态、奔驰的舒适——三位一体，造就了这台电动 GT 的独特气质。
+                    <br><br>
+                    车身采用银色主调，配合 NEKO 标志性的紫色光效氛围，
+                    在低调中蕴含锋芒。猫爪式锻造轮毂（NEKO CLAW）既是品牌标识，也是轻量化工程的艺术品。
+                </p>
+            </div>
+            <div class="design-specs">
+                <div class="design-spec-item">
+                    <span class="ds-label" data-i18n="spec_ref">设计参考</span>
+                    <span class="ds-val">Audi × BMW × Mercedes</span>
+                </div>
+                <div class="design-spec-item">
+                    <span class="ds-label" data-i18n="spec_light">灯语</span>
+                    <span class="ds-val">NEKO EYES + KITT 扫光尾灯</span>
+                </div>
+                <div class="design-spec-item">
+                    <span class="ds-label" data-i18n="spec_color">配色</span>
+                    <span class="ds-val">星云银 / 暗夜紫 / 珍珠白</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======== Quote Banner ======== -->
+<section class="detail-quote-banner">
+    <div class="detail-inner">
+        <p class="quote-text fade-up" data-i18n="car_gt_quote">
+            「它的速度静谧无声，却从不含糊迟疑。」
+        </p>
+        <p class="quote-sub fade-up" data-i18n="car_gt_quote2">NEKO GT 代表的是：优雅地超越一切。</p>
+    </div>
+</section>
+
+<!-- ======== Footer ======== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img src="../../logo.png" alt="TurboNeko Studio">
+            </div>
+            <p data-i18n="footer_desc">
+                致力于二次元文化、汽车文化与科技创意的跨界融合。<br>
+                通过视觉、产品与游戏，打造速度与风格并存的独特体验。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h5 data-i18n="footer_links">快速链接</h5>
+            <ul class="footer-links">
+                <li><a href="../../#about">关于</a></li>
+                <li><a href="../../#projects">项目</a></li>
+                <li><a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 data-i18n="footer_follow">关注我们</h5>
+            <div class="social-icons">
+                <a href="https://github.com/nachocrazy" title="GitHub" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://space.bilibili.com/1800466245" title="Bilibili" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+                </a>
+                <a href="mailto:xkh2008@outlook.com" title="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                </a>
+            </div>
+            <h5 data-i18n="footer_contact">联系方式</h5>
+            <div class="contact-info">
+                <p>xkh2008@outlook.com</p>
+                <p data-i18n="footer_location">Shanghai, China</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TurboNeko Studio. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../../script.js?v=5"></script>
+<script src="../cars.js?v=2"></script>
+<script src="../detail.js?v=2"></script>
 </body>
 </html>

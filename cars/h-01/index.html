@@ -1,205 +1,262 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H-01 Phantom Strike — TurboNeko Studio</title>
-    <link rel="stylesheet" href="../../style.css?v=4">
-    <link rel="stylesheet" href="../cars.css?v=1">
-    <link rel="stylesheet" href="../detail.css?v=1">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <title>H-01 Phantom Strike — Hypercar | TurboNeko Studio</title>
+    <meta name="description" content="H-01 Phantom Strike — TurboNeko 的终极之作。1550HP 混动超跑，0-100km/h 2.3 秒，速度的终点不需要解释。">
+    <link rel="icon" href="../../avatar/logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="../../style.css?v=5">
+    <link rel="stylesheet" href="../cars.css?v=2">
+    <link rel="stylesheet" href="../detail.css?v=2">
 </head>
 <body>
-    <nav>
-        <a href="../../" class="logo">TurboNek<b>o</b></a>
-        <div class="nav-links">
-            <a href="../../" data-i18n="nav_home">首页</a>
-            <a href="../" class="active" data-i18n="nav_cars">四车产品线</a>
-            <a href="../../app_intro/" data-i18n="nav_app">SoulMate</a>
-            <a href="../../game_intro/" data-i18n="nav_game">同人游戏</a>
-        </div>
+
+<!-- ========== 导航栏 ========== -->
+<nav>
+    <div class="nav-left">
+        <a href="../../" class="nav-logo">
+            <div class="nav-logo-img-wrap">
+                <img src="../../logo.png" alt="TurboNeko Studio">
+            </div>
+        </a>
+    </div>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="../../" data-i18n="nav_home">首页</a></li>
+            <li><a href="../" class="active" data-i18n="nav_cars">四车产品线</a></li>
+            <li><a href="../../app_intro/" data-i18n="nav_app">SoulMate</a></li>
+            <li><a href="../../game_intro/" data-i18n="nav_game">同人游戏</a></li>
+        </ul>
         <div class="nav-controls">
             <button class="nav-lang-switch" id="langSwitch" title="Switch Language">
                 <span class="lang-active" id="langLabel">EN</span>
             </button>
         </div>
-    </nav>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
 
-    <section class="detail-hero">
-        <div class="detail-hero-bg">
-            <img src="car.png" alt="H-01 Phantom Strike">
-        </div>
-        <div class="detail-hero-overlay"></div>
-        <div class="detail-hero-content">
-            <span class="detail-hero-badge" data-i18n="car_h_badge">Hypercar</span>
-            <h1 class="detail-hero-name">H-01<br>Phantom Strike</h1>
-            <p class="detail-hero-sub">Hypercar of Silence and Power</p>
-            <p class="detail-hero-tagline" data-i18n="car_h_tag">速度的终点，不需要解释。</p>
-        </div>
-        <div class="detail-hero-scroll">
-            <span data-i18n="scroll_hint">向下滚动探索</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
+<!-- 移动端菜单 -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+    </button>
+    <a href="../../">首页</a>
+    <a href="../">四车产品线</a>
+    <a href="../../app_intro/">SoulMate</a>
+    <a href="../../game_intro/">同人游戏</a>
+</div>
 
-    <section class="detail-section">
-        <div class="detail-inner">
-            <div class="detail-philosophy fade-up">
-                <p class="section-label" data-i18n="section_philo">设计理念</p>
-                <h2 data-i18n="car_h_philo_title">游走于现实边界的终极超跑</h2>
-                <p class="philo-body" data-i18n="car_h_philo_body">
-                    H-01 并非为日常使用而设计，而是用来定义品牌的极限。
-                    它无需声浪来证明，因为它本身就是卓越的成果。当你坐进驾驶舱的那一刻，所有的参数都变得不再重要——重要的是那种「边界感」。
-                    H-01 代表的是——
-                </p>
-                <p class="philo-quote" data-i18n="car_h_tag">速度的终点，不需要解释。</p>
-            </div>
-        </div>
-    </section>
+<!-- ======== Hero ======== -->
+<section class="detail-hero">
+    <div class="detail-hero-bg">
+        <img src="car.png" alt="H-01 Phantom Strike">
+    </div>
+    <div class="detail-hero-overlay"></div>
+    <div class="detail-hero-content">
+        <span class="detail-hero-badge" data-i18n="car_h_badge">Hypercar</span>
+        <h1 class="detail-hero-name">H-01<br>Phantom Strike</h1>
+        <p class="detail-hero-sub">Hypercar of Silence and Power</p>
+        <p class="detail-hero-tagline" data-i18n="car_h_tag">速度的终点，不需要解释。</p>
+    </div>
+    <div class="detail-hero-scroll">
+        <span data-i18n="scroll_hint">向下滚动探索</span>
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
 
-    <section class="detail-section specs-section">
-        <div class="detail-inner">
-            <p class="section-label fade-up" data-i18n="section_specs">技术规格</p>
-            <div class="specs-grid fade-up">
-                <div class="spec-card">
-                    <span class="spec-card-icon">⚡</span>
-                    <span class="spec-card-label" data-i18n="spec_power">功率</span>
-                    <span class="spec-card-val">~1550 匹</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">🔩</span>
-                    <span class="spec-card-label" data-i18n="spec_torque">扭矩</span>
-                    <span class="spec-card-val">~1560 N·m</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">💨</span>
-                    <span class="spec-card-label" data-i18n="spec_accel">0-100 km/h</span>
-                    <span class="spec-card-val">2.3 秒</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">🏁</span>
-                    <span class="spec-card-label" data-i18n="spec_topspd">极速</span>
-                    <span class="spec-card-val">350+ km/h</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">⚖️</span>
-                    <span class="spec-card-label" data-i18n="spec_weight">整备质量</span>
-                    <span class="spec-card-val">~1380 kg</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">🏗️</span>
-                    <span class="spec-card-label" data-i18n="spec_chassis">车架</span>
-                    <span class="spec-card-val">碳纤维单体壳</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">🔋</span>
-                    <span class="spec-card-label">电池</span>
-                    <span class="spec-card-val">9.8 kWh 高功率</span>
-                </div>
-                <div class="spec-card">
-                    <span class="spec-card-icon">🎮</span>
-                    <span class="spec-card-label" data-i18n="spec_mode">驾驶模式</span>
-                    <span class="spec-card-val">STEALTH / PERFORMANCE / TRACK / PHANTOM</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="detail-section features-section">
-        <div class="detail-inner">
-            <p class="section-label fade-up" data-i18n="section_features">核心特色</p>
-            <div class="features-grid fade-up">
-                <div class="feature-card">
-                    <div class="feature-num">01</div>
-                    <h4 data-i18n="car_h_f1">中置高性能混动架构</h4>
-                    <p data-i18n="car_h_f1d">V8 双涡轮 + 三电机混动，中置引擎布局，42:58 前后重量分配。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-num">02</div>
-                    <h4 data-i18n="car_h_f2">极致空气动力设计</h4>
-                    <p data-i18n="car_h_f2d">主动尾翼、底部分流板、后扩散器联动，200km/h 下压力超过 900kg。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-num">03</div>
-                    <h4 data-i18n="car_h_f3">赛道级性能输出</h4>
-                    <p data-i18n="car_h_f3d">1550 匹综合功率，1380kg 整备质量，推重比超过 1.12:1，进入 F1 领域。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-num">04</div>
-                    <h4 data-i18n="car_h_f4">碳纤维单体壳车架</h4>
-                    <p data-i18n="car_h_f4d">全碳纤维单体壳，扭转刚度 65000N·m/deg，安全等级超越 FIA 要求。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="detail-section design-section">
-        <div class="detail-inner">
-            <div class="design-showcase fade-up">
-                <div class="design-text">
-                    <p class="section-label" data-i18n="section_design">设计语言</p>
-                    <h2 data-i18n="car_h_design_title">静止时是雕塑，移动时是幻影</h2>
-                    <p data-i18n="car_h_design_body">
-                        H-01 的设计没有一丝多余。每一根线条都是空气动力学计算的结果，每一处曲面都在为下压力服务。<br><br>
-                        中置引擎布局带来了极致的比例：驾驶舱前移、后轮拱夸张隆起、座舱紧凑如战斗机。
-                        四种驾驶模式（STEALTH / PERFORMANCE / TRACK / PHANTOM）各自对应不同的空力配置——从隐藏式的 STEALTH 模式，到极限下压力的 PHANTOM 模式。<br><br>
-                        品牌理念：「NEKO 不只是速度的象征，更是一种精神的状态——敏捷、纯粹、灵动。它既是现实中存在，只为突破极限而生。」
-                    </p>
-                </div>
-                <div class="design-specs">
-                    <div class="design-spec-item">
-                        <span class="ds-label" data-i18n="spec_layout">布局</span>
-                        <span class="ds-val">中置引擎 AWD 混动</span>
-                    </div>
-                    <div class="design-spec-item">
-                        <span class="ds-label" data-i18n="spec_aero">空力</span>
-                        <span class="ds-val">主动尾翼 + 底部分流 + 后扩散器</span>
-                    </div>
-                    <div class="design-spec-item">
-                        <span class="ds-label" data-i18n="spec_mode">模式</span>
-                        <span class="ds-val">STEALTH / PERF / TRACK / PHANTOM</span>
-                    </div>
-                    <div class="design-spec-item">
-                        <span class="ds-label" data-i18n="spec_light">灯语</span>
-                        <span class="ds-val">CAT EYE LED + 主动扫光</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="detail-quote-banner">
-        <div class="detail-inner">
-            <p class="quote-text fade-up" data-i18n="car_h_quote">
-                「它无需声浪来证明，因为它本身就是卓越的成果。」
+<!-- ======== Philosophy ======== -->
+<section class="detail-section">
+    <div class="detail-inner">
+        <div class="detail-philosophy fade-up">
+            <p class="section-label" data-i18n="section_philo">设计理念</p>
+            <h2 data-i18n="car_h_philo_title">游走于现实边界的终极超跑</h2>
+            <p class="philo-body" data-i18n="car_h_philo_body">
+                H-01 并非为日常使用而设计，而是用来定义品牌的极限。
+                它无需声浪来证明，因为它本身就是卓越的成果。当你坐进驾驶舱的那一刻，所有的参数都变得不再重要——重要的是那种「边界感」。
+                H-01 代表的是——
             </p>
-            <p class="quote-sub fade-up" data-i18n="car_h_quote2">H-01 代表的是：速度的终点，不需要解释。</p>
+            <p class="philo-quote" data-i18n="car_h_tag">速度的终点，不需要解释。</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-col">
-                <h4>TurboNek<b>o</b></h4>
-                <p data-i18n="footer_desc">独立开发工作室，专注于 AI 陪伴应用、游戏开发与软件工具。</p>
+<!-- ======== Specs ======== -->
+<section class="detail-section specs-section">
+    <div class="detail-inner">
+        <p class="section-label fade-up" data-i18n="section_specs">技术规格</p>
+        <div class="specs-grid fade-up">
+            <div class="spec-card">
+                <span class="spec-card-icon">⚡</span>
+                <span class="spec-card-label" data-i18n="spec_power">功率</span>
+                <span class="spec-card-val">~1550 匹</span>
             </div>
-            <div class="footer-col">
-                <h4 data-i18n="footer_links">友情链接</h4>
-                <a href="https://space.bilibili.com/1800466245" target="_blank" rel="noopener">Bilibili</a>
-                <a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a>
+            <div class="spec-card">
+                <span class="spec-card-icon">🔩</span>
+                <span class="spec-card-label" data-i18n="spec_torque">扭矩</span>
+                <span class="spec-card-val">~1560 N·m</span>
             </div>
-            <div class="footer-col">
-                <h4 data-i18n="footer_contact">联系方式</h4>
-                <p>Email: nachocrazy@outlook.com</p>
+            <div class="spec-card">
+                <span class="spec-card-icon">💨</span>
+                <span class="spec-card-label" data-i18n="spec_accel">0-100 km/h</span>
+                <span class="spec-card-val">2.3 秒</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">🏁</span>
+                <span class="spec-card-label" data-i18n="spec_topspd">极速</span>
+                <span class="spec-card-val">350+ km/h</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">⚖️</span>
+                <span class="spec-card-label" data-i18n="spec_weight">整备质量</span>
+                <span class="spec-card-val">~1380 kg</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">🏗️</span>
+                <span class="spec-card-label" data-i18n="spec_chassis">车架</span>
+                <span class="spec-card-val">碳纤维单体壳</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">🔋</span>
+                <span class="spec-card-label">电池</span>
+                <span class="spec-card-val">9.8 kWh 高功率</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">🎮</span>
+                <span class="spec-card-label" data-i18n="spec_mode">驾驶模式</span>
+                <span class="spec-card-val">STEALTH / PERFORMANCE / TRACK / PHANTOM</span>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2024 TurboNeko Studio. All rights reserved. 琉璃猫猫！</p>
-        </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="../../script.js?v=4"></script>
-    <script src="../cars.js?v=1"></script>
-    <script src="../detail.js?v=1"></script>
+<!-- ======== Features ======== -->
+<section class="detail-section features-section">
+    <div class="detail-inner">
+        <p class="section-label fade-up" data-i18n="section_features">核心特色</p>
+        <div class="features-grid fade-up">
+            <div class="feature-card">
+                <div class="feature-num">01</div>
+                <h4 data-i18n="car_h_f1">中置高性能混动架构</h4>
+                <p data-i18n="car_h_f1d">V8 双涡轮 + 三电机混动，中置引擎布局，42:58 前后重量分配。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-num">02</div>
+                <h4 data-i18n="car_h_f2">极致空气动力设计</h4>
+                <p data-i18n="car_h_f2d">主动尾翼、底部分流板、后扩散器联动，200km/h 下压力超过 900kg。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-num">03</div>
+                <h4 data-i18n="car_h_f3">赛道级性能输出</h4>
+                <p data-i18n="car_h_f3d">1550 匹综合功率，1380kg 整备质量，推重比超过 1.12:1，进入 F1 领域。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-num">04</div>
+                <h4 data-i18n="car_h_f4">碳纤维单体壳车架</h4>
+                <p data-i18n="car_h_f4d">全碳纤维单体壳，扭转刚度 65000N·m/deg，安全等级超越 FIA 要求。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======== Design ======== -->
+<section class="detail-section design-section">
+    <div class="detail-inner">
+        <div class="design-showcase fade-up">
+            <div class="design-text">
+                <p class="section-label" data-i18n="section_design">设计语言</p>
+                <h2 data-i18n="car_h_design_title">静止时是雕塑，移动时是幻影</h2>
+                <p data-i18n="car_h_design_body">
+                    H-01 的设计没有一丝多余。每一根线条都是空气动力学计算的结果，每一处曲面都在为下压力服务。<br><br>
+                    中置引擎布局带来了极致的比例：驾驶舱前移、后轮拱夸张隆起、座舱紧凑如战斗机。
+                    四种驾驶模式（STEALTH / PERFORMANCE / TRACK / PHANTOM）各自对应不同的空力配置——从隐藏式的 STEALTH 模式，到极限下压力的 PHANTOM 模式。<br><br>
+                    品牌理念：「NEKO 不只是速度的象征，更是一种精神的状态——敏捷、纯粹、灵动。它既存在于现实中，只为突破极限而生。」
+                </p>
+            </div>
+            <div class="design-specs">
+                <div class="design-spec-item">
+                    <span class="ds-label" data-i18n="spec_layout">布局</span>
+                    <span class="ds-val">中置引擎 AWD 混动</span>
+                </div>
+                <div class="design-spec-item">
+                    <span class="ds-label" data-i18n="spec_aero">空力</span>
+                    <span class="ds-val">主动尾翼 + 底部分流 + 后扩散器</span>
+                </div>
+                <div class="design-spec-item">
+                    <span class="ds-label" data-i18n="spec_mode">模式</span>
+                    <span class="ds-val">STEALTH / PERF / TRACK / PHANTOM</span>
+                </div>
+                <div class="design-spec-item">
+                    <span class="ds-label" data-i18n="spec_light">灯语</span>
+                    <span class="ds-val">CAT EYE LED + 主动扫光</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======== Quote ======== -->
+<section class="detail-quote-banner">
+    <div class="detail-inner">
+        <p class="quote-text fade-up" data-i18n="car_h_quote">
+            「它无需声浪来证明，因为它本身就是卓越的成果。」
+        </p>
+        <p class="quote-sub fade-up" data-i18n="car_h_quote2">H-01 代表的是：速度的终点，不需要解释。</p>
+    </div>
+</section>
+
+<!-- ======== Footer ======== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img src="../../logo.png" alt="TurboNeko Studio">
+            </div>
+            <p data-i18n="footer_desc">
+                致力于二次元文化、汽车文化与科技创意的跨界融合。<br>
+                通过视觉、产品与游戏，打造速度与风格并存的独特体验。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h5 data-i18n="footer_links">快速链接</h5>
+            <ul class="footer-links">
+                <li><a href="../../#about">关于</a></li>
+                <li><a href="../../#projects">项目</a></li>
+                <li><a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 data-i18n="footer_follow">关注我们</h5>
+            <div class="social-icons">
+                <a href="https://github.com/nachocrazy" title="GitHub" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://space.bilibili.com/1800466245" title="Bilibili" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+                </a>
+                <a href="mailto:xkh2008@outlook.com" title="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                </a>
+            </div>
+            <h5 data-i18n="footer_contact">联系方式</h5>
+            <div class="contact-info">
+                <p>xkh2008@outlook.com</p>
+                <p data-i18n="footer_location">Shanghai, China</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TurboNeko Studio. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../../script.js?v=5"></script>
+<script src="../cars.js?v=2"></script>
+<script src="../detail.js?v=2"></script>
 </body>
 </html>
