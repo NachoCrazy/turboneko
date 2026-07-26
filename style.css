@@ -834,10 +834,11 @@ footer {
 }
 
 @media (max-width: 768px) {
-    nav { padding: 0 20px; height: 64px; }
+    nav { padding: 0 16px; height: 60px; }
     .nav-links { display: none; }
-    .nav-lang-switch { display: none; }
+    .nav-right { gap: 8px; }
     .hamburger { display: flex; }
+    .hamburger span { width: 20px; height: 2px; }
     .hero { padding: 100px 20px 60px; min-height: auto; }
     .hero-title { font-size: clamp(36px, 9vw, 56px); }
     .hero-desc { font-size: 14px; }
@@ -856,9 +857,13 @@ footer {
 }
 
 @media (max-width: 480px) {
-    nav { padding: 0 16px; height: 60px; }
-    .nav-logo-img-wrap { height: 48px; padding: 0 8px; }
-    .nav-logo-img-wrap img { height: 32px; }
+    nav { padding: 0 12px; height: 56px; }
+    .nav-right { gap: 6px; }
+    .nav-logo-img-wrap { height: 42px; padding: 0 6px; }
+    .nav-logo-img-wrap img { height: 28px; }
+    .nav-lang-switch { padding: 4px 10px; font-size: 11px; }
+    .hamburger span { width: 18px; }
+    .hamburger { padding: 4px; }
     .hero { padding: 80px 16px 48px; }
     .hero-title { font-size: clamp(28px, 8vw, 40px); }
     .hero-desc { font-size: 13px; line-height: 1.6; }
