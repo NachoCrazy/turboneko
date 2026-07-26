@@ -22,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
             proj_soulmate: 'AI 陪伴应用', proj_ba: '蔚蓝档案同人游戏',
             proj_nemusic: '网易云音乐本地版', proj_coming: '敬请期待',
             tech_label: '技术栈', tech_coming: '正在建设中...',
+            tech_fe: '前端', tech_fe_desc: '响应式设计、CSS 变量、IntersectionObserver 动画',
+            tech_compose_desc: 'SoulMate 原生 Android 客户端',
+            tech_be: '后端 & AI', tech_flask_desc: '轻量 REST API — SoulMate 后端服务',
+            tech_ollama_desc: '本地 LLM 推理 (Gemma 3 4B)，零云端依赖',
+            tech_game: '游戏开发', tech_renpy_desc: '视觉小说引擎 — BA 同人游戏',
+            tech_tools: '工具 & 平台', tech_git_desc: '版本控制与开源协作',
+            tech_figma_desc: 'UI/UX 设计与原型',
             footer_desc: '致力于二次元文化、汽车文化与科技创意的跨界融合。<br>通过视觉、产品与游戏，打造速度与风格并存的独特体验。',
             footer_links: '快速链接', footer_follow: '关注我们',
             footer_contact: '联系方式', footer_contact_link: '联系我们',
@@ -42,6 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
             proj_soulmate: 'AI Companion App', proj_ba: 'Blue Archive Fan Game',
             proj_nemusic: 'NetEase Cloud Music (Local)', proj_coming: 'Coming Soon...',
             tech_label: 'Tech Stack', tech_coming: 'Coming soon...',
+            tech_fe: 'Frontend', tech_fe_desc: 'Responsive design, CSS variables, IntersectionObserver animations',
+            tech_compose_desc: 'SoulMate native Android client',
+            tech_be: 'Backend & AI', tech_flask_desc: 'Lightweight REST API — SoulMate backend',
+            tech_ollama_desc: 'Local LLM inference (Gemma 3 4B), zero cloud dependency',
+            tech_game: 'Game Dev', tech_renpy_desc: 'Visual novel engine — BA fan game',
+            tech_tools: 'Tools & Platforms', tech_git_desc: 'Version control & open-source collaboration',
+            tech_figma_desc: 'UI/UX design & prototyping',
             footer_desc: 'Dedicated to the cross-boundary fusion of anime culture,<br>automotive aesthetics, and creative tech.<br>Where speed meets style.',
             footer_links: 'Quick Links', footer_follow: 'Follow Us',
             footer_contact: 'Contact', footer_contact_link: 'Contact',
@@ -70,9 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    document.getElementById('langSwitch').addEventListener('click', () => {
-        applyLang(currentLang === 'zh' ? 'en' : 'zh');
-    });
+    const langSwitch = document.getElementById('langSwitch');
+    if (langSwitch) {
+        langSwitch.addEventListener('click', () => {
+            applyLang(currentLang === 'zh' ? 'en' : 'zh');
+        });
+    }
 
     // Apply saved language
     applyLang(currentLang);
@@ -142,11 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ========== 4. Mobile menu toggle ========== */
     const mobileMenu = document.getElementById('mobileMenu');
-    document.querySelectorAll('#mobileMenu a').forEach(a => {
-        a.addEventListener('click', () => {
-            if (mobileMenu) mobileMenu.classList.remove('open');
+    if (mobileMenu) {
+        document.querySelectorAll('#mobileMenu a').forEach(a => {
+            a.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
         });
-    });
+    }
 
 
     /* ========== 5. Hero word animation replay on re-entry ========== */
@@ -171,5 +190,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroSection) {
         heroObserver.observe(heroSection);
     }
+
+
+    /* ========== 6. 🥚 Easter Egg — Konami Code ========== */
+    let konamiIndex = 0;
+    const konamiCode = [
+        'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+        'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+        'b', 'a'
+    ];
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex >= konamiCode.length) {
+                konamiIndex = 0;
+                // 触发彩蛋
+                window.open(
+                    'https://www.bilibili.com/video/BV1GJ411x7h7',
+                    '_blank'
+                );
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
+    /* ========== 7. Footer year auto-update ========== */
+    document.querySelectorAll('.footer-bottom p').forEach(el => {
+        el.textContent = el.textContent.replace(/\d{4}/, new Date().getFullYear().toString());
+    });
 
 });

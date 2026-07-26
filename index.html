@@ -4,8 +4,26 @@
     <link rel="icon" href="/avatar/logo.jpg" type="image/jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TurboNeko Studio - Speed Meets Style</title>
-    <link rel="stylesheet" href="style.css?v=4">
+    <title>TurboNeko Studio — Speed Meets Style</title>
+    <meta name="description" content="TurboNeko Studio 是一个融合二次元幻想、硬核汽车文化与前沿科技的创意厂牌。探索我们的项目、汽车产品线与游戏开发。">
+    <meta name="keywords" content="TurboNeko, 二次元, 汽车文化, 游戏开发, SoulMate, AI, 视觉设计, 科技创意">
+    <meta property="og:title" content="TurboNeko Studio — Speed Meets Style">
+    <meta property="og:description" content="一个将二次元幻想、汽车文化与前沿科技完美融合的创意厂牌。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/logo.png">
+    <meta property="og:url" content="https://turboneko.studio">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" href="style.css?v=5" as="style">
+    <link rel="stylesheet" href="style.css?v=5">
+    <!-- 如果没有 JS，确保 fade-up 元素默认可见 -->
+    <noscript>
+        <style>
+            .js-enabled .fade-up { opacity: 1 !important; transform: none !important; }
+            .js-enabled .hero-word { opacity: 1 !important; transform: none !important; }
+            .js-enabled .hero-desc { opacity: 1 !important; transform: none !important; }
+            .js-enabled .hero-btn { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
 </head>
 <body>
 
@@ -239,10 +257,10 @@
                 </div>
             </div>
         </a>
-        <a href="#" class="project-card fade-up delay-4" onclick="return false" style="pointer-events:none;">
-            <div class="project-img" data-emoji="✨">
+        <div class="project-card project-card-locked fade-up delay-4">
+            <div class="project-img" data-emoji="🔒">
                 <div class="project-tags">
-                    <span class="project-tag">TBD</span>
+                    <span class="project-tag project-tag-locked">Coming Soon</span>
                 </div>
                 <div class="project-num"><span>04</span></div>
             </div>
@@ -251,17 +269,17 @@
                     <h4>???</h4>
                     <p data-i18n="proj_coming">敬请期待</p>
                 </div>
-                <div class="project-arrow">
+                <div class="project-arrow" style="opacity:0.3;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
 </section>
 
-<!-- ========== Tech Stack (placeholder section) ========== -->
+<!-- ========== Tech Stack ========== -->
 <section class="projects" id="techstack" style="background: var(--bg-card);">
     <div class="projects-header">
         <div class="section-label">
@@ -271,18 +289,65 @@
             <span data-i18n="tech_label">Tech Stack</span>
         </div>
     </div>
-    <div style="max-width:1200px;margin:0 auto;text-align:center;padding:40px 0;">
-        <p style="color:var(--text-muted);font-size:14px;" data-i18n="tech_coming">Coming soon...</p>
+    <div class="techstack-grid fade-up" style="max-width:1200px;margin:0 auto;">
+        <div class="techstack-category">
+            <div class="techstack-cat-title" data-i18n="tech_fe">前端</div>
+            <div class="techstack-items">
+                <div class="techstack-item">
+                    <span class="techstack-icon">🌐</span>
+                    <span class="techstack-name">HTML5 / CSS3 / JS</span>
+                    <span class="techstack-desc" data-i18n="tech_fe_desc">响应式设计、CSS 变量、IntersectionObserver 动画</span>
+                </div>
+                <div class="techstack-item">
+                    <span class="techstack-icon">⚛️</span>
+                    <span class="techstack-name">Kotlin / Compose</span>
+                    <span class="techstack-desc" data-i18n="tech_compose_desc">SoulMate 原生 Android 客户端</span>
+                </div>
+            </div>
+        </div>
+        <div class="techstack-category">
+            <div class="techstack-cat-title" data-i18n="tech_be">后端 & AI</div>
+            <div class="techstack-items">
+                <div class="techstack-item">
+                    <span class="techstack-icon">🐍</span>
+                    <span class="techstack-name">Python / Flask</span>
+                    <span class="techstack-desc" data-i18n="tech_flask_desc">轻量 REST API — SoulMate 后端服务</span>
+                </div>
+                <div class="techstack-item">
+                    <span class="techstack-icon">🤖</span>
+                    <span class="techstack-name">Ollama</span>
+                    <span class="techstack-desc" data-i18n="tech_ollama_desc">本地 LLM 推理 (Gemma 3 4B)，零云端依赖</span>
+                </div>
+            </div>
+        </div>
+        <div class="techstack-category">
+            <div class="techstack-cat-title" data-i18n="tech_game">游戏开发</div>
+            <div class="techstack-items">
+                <div class="techstack-item">
+                    <span class="techstack-icon">🎮</span>
+                    <span class="techstack-name">Ren'Py</span>
+                    <span class="techstack-desc" data-i18n="tech_renpy_desc">视觉小说引擎 — BA 同人游戏</span>
+                </div>
+            </div>
+        </div>
+        <div class="techstack-category">
+            <div class="techstack-cat-title" data-i18n="tech_tools">工具 & 平台</div>
+            <div class="techstack-items">
+                <div class="techstack-item">
+                    <span class="techstack-icon">📦</span>
+                    <span class="techstack-name">Git / GitHub</span>
+                    <span class="techstack-desc" data-i18n="tech_git_desc">版本控制与开源协作</span>
+                </div>
+                <div class="techstack-item">
+                    <span class="techstack-icon">🎨</span>
+                    <span class="techstack-name">Figma</span>
+                    <span class="techstack-desc" data-i18n="tech_figma_desc">UI/UX 设计与原型</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="easter-egg" id="rickroll" style="position:fixed;bottom:20px;right:20px;z-index:999;">
-    <div style="text-align:center; margin-top:20px;">
-        <button id="rickButton" class="hero-btn" style="background:#e50914;color:white;font-weight:bold;padding:8px 16px;border:none;border-radius:4px;cursor:pointer;">
-            看点…？
-        </button>
-    </div>
-</section>
 <!-- ========== Footer ========== -->
 <footer id="contact">
     <div class="footer-inner">
@@ -330,11 +395,6 @@
     </div>
 </footer>
 
-<script src="script.js?v=4"></script>
-<script>
-document.getElementById('rickButton').onclick=function(){
-    window.open('https://vdse.bdstatic.com//192d9a98d782d9c74c96f09db9378d93.mp4?authorization=bce-auth-v1/40f207e648424f47b2e3dfbb1014b1a5/2021-07-12T02:14:24Z/-1/host/530146520a1c89fb727fbbdb8a0e0c98ec69955459aed4b1c8e00839187536c9','_blank');
-};
-</script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

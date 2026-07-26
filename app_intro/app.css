@@ -98,12 +98,12 @@
     flex-wrap: wrap;
 }
 .hero-btn-ghost {
-    background: rgba(255,255,255,0.03) !important;
-    border-color: rgba(255,255,255,0.10) !important;
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.10);
 }
 [data-theme="light"] .hero-btn-ghost {
-    background: rgba(0,0,0,0.02) !important;
-    border-color: rgba(0,0,0,0.08) !important;
+    background: rgba(0,0,0,0.02);
+    border-color: rgba(0,0,0,0.08);
 }
 
 /* ---------- App Section ---------- */
