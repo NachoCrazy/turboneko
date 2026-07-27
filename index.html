@@ -395,6 +395,101 @@
     </div>
 </footer>
 
+<!-- ========== 🎂 浮动生日蛋糕按钮 ========== -->
+<a href="/birthday/" class="birthday-fab" aria-label="生日特别企划">
+    <span class="birthday-fab-icon">🎂</span>
+    <span class="birthday-fab-text">生日</span>
+</a>
+
+<style>
+/* 🎂 浮动蛋糕按钮 */
+.birthday-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(139,92,246,0.25), rgba(236,72,153,0.15));
+    border: 1px solid rgba(139,92,246,0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(139,92,246,0.15);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    animation: fabFloat 3s ease-in-out infinite;
+}
+.birthday-fab:hover {
+    transform: scale(1.12);
+    border-color: rgba(139,92,246,0.5);
+    box-shadow: 0 6px 32px rgba(139,92,246,0.3);
+    background: linear-gradient(135deg, rgba(139,92,246,0.35), rgba(236,72,153,0.25));
+}
+.birthday-fab:active {
+    transform: scale(0.95);
+}
+.birthday-fab-icon {
+    font-size: 24px;
+    line-height: 1;
+    filter: drop-shadow(0 1px 4px rgba(139,92,246,0.3));
+}
+.birthday-fab-text {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-light);
+    text-shadow: 0 0 8px rgba(139,92,246,0.2);
+}
+
+@keyframes fabFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* 悬浮提示 */
+.birthday-fab::after {
+    content: '🎉 生日特别企划';
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-dim);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.birthday-fab:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .birthday-fab {
+        width: 52px;
+        height: 52px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .birthday-fab-icon { font-size: 20px; }
+    .birthday-fab-text { font-size: 8px; }
+    .birthday-fab::after { display: none; }
+}
+</style>
+
 <script src="script.js?v=5"></script>
 </body>
 </html>

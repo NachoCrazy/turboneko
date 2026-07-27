@@ -6,47 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎂 生日特别企划 — TurboNeko Studio</title>
     <meta name="description" content="2026年8月3日 · 来自两份AI的生日祝福">
+    <link rel="preload" href="/style.css?v=5" as="style">
+    <link rel="stylesheet" href="/style.css?v=5">
+    <noscript>
+        <style>
+            .js-enabled .fade-up { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
     <style>
-        /* ===== TurboNeko Design System (same as main site) ===== */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-        :root {
-            --bg: #0A0A14;
-            --bg-card: #12121E;
-            --bg-footer: #060610;
-            --primary: #8B5CF6;
-            --primary-light: #A78BFA;
-            --primary-glow: rgba(139,92,246,0.15);
-            --cyan: #38BDF8;
-            --pink: #EC4899;
-            --gold: #F59E0B;
-            --text: #F1F0FB;
-            --text-dim: #9CA3AF;
-            --text-muted: #6B7280;
-            --border: rgba(255,255,255,0.08);
-            --border-light: rgba(255,255,255,0.12);
-        }
-
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        a { color: inherit; text-decoration: none; }
-
-        /* ===== LOCKED OVERLAY ===== */
+        /* ===== Birthday-specific styles ===== */
         .locked-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 100;
+            z-index: 99999;
             background: var(--bg);
             display: flex;
             flex-direction: column;
@@ -61,7 +33,6 @@
             visibility: hidden;
             pointer-events: none;
         }
-
         .locked-icon {
             font-size: 72px;
             margin-bottom: 24px;
@@ -71,24 +42,21 @@
             0%, 100% { transform: scale(1); opacity: 0.6; }
             50% { transform: scale(1.1); opacity: 1; }
         }
-
         .locked-title {
             font-size: clamp(28px, 5vw, 42px);
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-light), var(--pink));
+            background: linear-gradient(135deg, var(--primary-light), var(--pink, #EC4899));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 16px;
         }
-
         .locked-subtitle {
             font-size: 16px;
             color: var(--text-dim);
             margin-bottom: 32px;
             max-width: 400px;
         }
-
         .countdown-wrap {
             display: flex;
             gap: 20px;
@@ -117,7 +85,6 @@
             letter-spacing: 2px;
             margin-top: 6px;
         }
-
         .locked-teaser {
             font-size: 13px;
             color: var(--text-muted);
@@ -132,7 +99,7 @@
             color: var(--primary-light);
         }
 
-        /* ===== MAIN CONTENT (hidden when locked) ===== */
+        /* ===== Main content (hidden when locked) ===== */
         .main-content {
             opacity: 0;
             transition: opacity 0.8s ease;
@@ -141,59 +108,7 @@
             opacity: 1;
         }
 
-        /* ===== NAV ===== */
-        .birthday-nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 56px;
-            height: 64px;
-            background: rgba(10,10,20,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-        .birthday-nav a {
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--text-dim);
-            transition: color 0.25s;
-        }
-        .birthday-nav a:hover { color: var(--primary-light); }
-
-        .birthday-nav .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .birthday-nav .nav-brand img {
-            height: 32px;
-            width: auto;
-            filter: brightness(1.5);
-        }
-        .birthday-nav .nav-brand span {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .nav-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(236,72,153,0.2));
-            border: 1px solid rgba(139,92,246,0.25);
-            color: var(--primary-light);
-            letter-spacing: 1px;
-        }
-
-        /* ===== HERO (birthday) ===== */
+        /* ===== Birthday Hero ===== */
         .birthday-hero {
             position: relative;
             min-height: 80vh;
@@ -217,14 +132,12 @@
             0% { transform: translate(0, 0) rotate(0deg); }
             100% { transform: translate(2%, 1%) rotate(3deg); }
         }
-
         .birthday-hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
             max-width: 700px;
         }
-
         .birthday-badge {
             display: inline-block;
             padding: 6px 16px;
@@ -238,7 +151,6 @@
             text-transform: uppercase;
             margin-bottom: 20px;
         }
-
         .birthday-hero h1 {
             font-size: clamp(36px, 6vw, 64px);
             font-weight: 900;
@@ -246,8 +158,7 @@
             margin-bottom: 12px;
         }
         .birthday-hero h1 .highlight-purple { color: var(--primary); }
-        .birthday-hero h1 .highlight-pink { color: var(--pink); }
-
+        .birthday-hero h1 .highlight-pink { color: #EC4899; }
         .birthday-hero p {
             font-size: 16px;
             color: var(--text-dim);
@@ -255,7 +166,6 @@
             margin: 0 auto 32px;
             line-height: 1.8;
         }
-
         .hero-scroll-hint {
             display: inline-flex;
             align-items: center;
@@ -271,13 +181,12 @@
             50% { transform: translateY(6px); }
         }
 
-        /* ===== SECTION (general) ===== */
-        .section {
+        /* ===== Sections ===== */
+        .birthday-section {
             padding: 80px 56px;
             max-width: 960px;
             margin: 0 auto;
         }
-
         .section-header {
             text-align: center;
             margin-bottom: 48px;
@@ -298,16 +207,15 @@
             max-width: 500px;
             margin: 0 auto;
         }
-
         .section-divider {
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--pink));
+            background: linear-gradient(90deg, var(--primary), #EC4899);
             border-radius: 2px;
             margin: 0 auto 32px;
         }
 
-        /* ===== LETTER CARDS ===== */
+        /* ===== Letter Cards ===== */
         .letter-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -326,7 +234,6 @@
         }
         .letter-card.chatgpt::before { background: linear-gradient(90deg, #10A37F, #1A7F64); }
         .letter-card.copilot::before { background: linear-gradient(90deg, #0066FF, #0055CC); }
-
         .letter-card .letter-source {
             display: flex;
             align-items: center;
@@ -348,15 +255,8 @@
         }
         .letter-card.chatgpt .avatar { background: rgba(16,163,127,0.15); color: #10A37F; }
         .letter-card.copilot .avatar { background: rgba(0,102,255,0.15); color: #0066FF; }
-
-        .letter-card .letter-source .meta h3 {
-            font-size: 15px;
-            font-weight: 700;
-        }
-        .letter-card .letter-source .meta span {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
+        .letter-card .letter-source .meta h3 { font-size: 15px; font-weight: 700; }
+        .letter-card .letter-source .meta span { font-size: 12px; color: var(--text-muted); }
         .letter-card .letter-source .decon-btn {
             margin-left: auto;
             padding: 6px 14px;
@@ -374,16 +274,12 @@
             color: var(--primary-light);
             background: rgba(139,92,246,0.06);
         }
-
-        /* Letter content */
         .letter-body {
             font-size: 14px;
             line-height: 2;
             color: var(--text);
         }
-        .letter-body p {
-            margin-bottom: 16px;
-        }
+        .letter-body p { margin-bottom: 16px; }
         .letter-body .quote {
             padding: 16px 20px;
             margin: 20px 0;
@@ -400,21 +296,15 @@
             font-size: 18px;
             letter-spacing: 8px;
         }
-        .letter-body .highlight {
-            color: var(--primary-light);
-            font-weight: 600;
-        }
-        .letter-body .gold {
-            color: var(--gold);
-            font-weight: 600;
-        }
+        .letter-body .highlight { color: var(--primary-light); font-weight: 600; }
+        .letter-body .gold { color: #F59E0B; font-weight: 600; }
 
-        /* ===== DECONSTRUCTION BOX ===== */
+        /* ===== Deconstruction Box ===== */
         .deconstruction-box {
             margin-top: 24px;
             padding: 20px 24px;
             border-radius: 10px;
-            border: 1px dashed var(--border-light);
+            border: 1px dashed rgba(255,255,255,0.12);
             background: rgba(139,92,246,0.03);
             display: none;
         }
@@ -440,7 +330,7 @@
             line-height: 1.9;
         }
 
-        /* ===== FUSION SECTION ===== */
+        /* ===== Fusion Section ===== */
         .fusion-section {
             padding: 80px 56px 100px;
             background: linear-gradient(180deg, var(--bg), var(--bg-card), var(--bg));
@@ -475,20 +365,9 @@
             border-color: rgba(139,92,246,0.2);
             transform: translateY(-4px);
         }
-        .fusion-item .fusion-icon {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-        .fusion-item h4 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .fusion-item p {
-            font-size: 13px;
-            color: var(--text-dim);
-            line-height: 1.8;
-        }
+        .fusion-item .fusion-icon { font-size: 28px; margin-bottom: 12px; }
+        .fusion-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+        .fusion-item p { font-size: 13px; color: var(--text-dim); line-height: 1.8; }
         .fusion-item .from {
             font-size: 11px;
             color: var(--text-muted);
@@ -508,7 +387,7 @@
         .from .tag-copilot { background: rgba(0,102,255,0.12); color: #0066FF; }
         .from .tag-both { background: rgba(139,92,246,0.12); color: var(--primary-light); }
 
-        /* ===== FINAL BLESSING ===== */
+        /* ===== Final Blessing ===== */
         .final-blessing {
             padding: 80px 56px;
             text-align: center;
@@ -534,7 +413,7 @@
             font-size: 22px;
             font-weight: 800;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--pink));
+            background: linear-gradient(135deg, var(--primary), #EC4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -545,60 +424,23 @@
             line-height: 2;
         }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 40px;
-            padding: 12px 24px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-dim);
-            font-size: 13px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .back-link:hover {
-            border-color: var(--primary);
-            color: var(--primary-light);
-            background: rgba(139,92,246,0.06);
-        }
-
-        /* ===== FOOTER ===== */
-        .birthday-footer {
-            padding: 32px 56px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            background: var(--bg-footer);
-        }
-        .birthday-footer p {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        /* ===== RESPONSIVE ===== */
+        /* ===== Responsive ===== */
         @media (max-width: 768px) {
-            .birthday-nav { padding: 0 20px; height: 56px; }
-            .birthday-nav .nav-brand span { display: none; }
             .birthday-hero { padding: 100px 20px 60px; min-height: 70vh; }
-            .section { padding: 48px 20px; }
+            .birthday-section { padding: 48px 20px; }
             .letter-card { padding: 28px 20px; }
             .letter-card .letter-source { flex-wrap: wrap; }
-            .letter-card .letter-source .meta { min-width: 0; }
             .fusion-grid { grid-template-columns: 1fr; }
             .fusion-section { padding: 48px 20px; }
             .final-blessing { padding: 48px 20px; }
             .final-blessing .blessing-box { padding: 32px 20px; }
-            .birthday-footer { padding: 24px 20px; }
             .countdown-wrap { gap: 12px; }
             .countdown-item { min-width: 56px; }
             .countdown-num { font-size: 36px; }
         }
-
         @media (max-width: 480px) {
-            .birthday-nav { padding: 0 12px; }
             .birthday-hero { padding: 80px 16px 48px; }
-            .section { padding: 36px 16px; }
+            .birthday-section { padding: 36px 16px; }
             .letter-card { padding: 20px 16px; border-radius: 12px; }
             .countdown-num { font-size: 28px; }
         }
@@ -639,17 +481,51 @@
 <!-- ===== MAIN CONTENT ===== -->
 <div class="main-content" id="mainContent">
 
-<!-- Nav -->
-<nav class="birthday-nav">
-    <a href="/" class="nav-brand">
-        <img src="/logo.png" alt="TurboNeko">
-        <span>TurboNeko Studio</span>
-    </a>
-    <span class="nav-badge">🎂 生日特别企划</span>
-    <a href="/">← 返回首页</a>
+<!-- ========== 导航栏 (与主页一致) ========== -->
+<nav>
+    <div class="nav-left">
+        <a href="/" class="nav-logo">
+            <div class="nav-logo-img-wrap">
+                <img src="/logo.png" alt="TurboNeko Studio">
+            </div>
+        </a>
+    </div>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="/" data-i18n="nav_home">首页</a></li>
+            <li><a href="/#about" data-i18n="nav_about">关于</a></li>
+            <li><a href="/#projects" data-i18n="nav_projects">项目展示</a></li>
+            <li><a href="/cars/" data-i18n="nav_cars">四车产品线</a></li>
+            <li><a href="/#techstack" data-i18n="nav_techstack">技术栈</a></li>
+            <li><a href="/#contact" data-i18n="nav_contact">联系</a></li>
+        </ul>
+        <div class="nav-controls" style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:12px;background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(236,72,153,0.15));border:1px solid rgba(139,92,246,0.25);color:var(--primary-light);">🎂 特别企划</span>
+            <button class="nav-lang-switch" id="langSwitch" title="Switch Language">
+                <span class="lang-active" id="langLabel">中文</span>
+            </button>
+        </div>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
 </nav>
 
-<!-- Hero -->
+<!-- 移动端菜单 -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+    </button>
+    <a href="/" data-i18n="nav_home">首页</a>
+    <a href="/#about" data-i18n="nav_about">关于</a>
+    <a href="/#projects" data-i18n="nav_projects">项目展示</a>
+    <a href="/#techstack" data-i18n="nav_techstack">技术栈</a>
+    <a href="/#contact" data-i18n="nav_contact">联系</a>
+</div>
+
+<!-- ========== Birthday Hero ========== -->
 <section class="birthday-hero">
     <div class="birthday-hero-content">
         <div class="birthday-badge">🎉 2026年8月3日</div>
@@ -670,8 +546,8 @@
     </div>
 </section>
 
-<!-- ===== SECTION: ChatGPT ===== -->
-<section class="section">
+<!-- ===== Letter #01: ChatGPT ===== -->
+<section class="birthday-section">
     <div class="section-header">
         <div class="section-icon">🤖</div>
         <h2>Letter <span class="accent">#01</span></h2>
@@ -687,52 +563,29 @@
             </div>
             <button class="decon-btn" onclick="toggleDecon('decon-gpt')">🔍 拆解</button>
         </div>
-
         <div class="letter-body">
             <p>亲爱的你：</p>
-
             <p>当你看到这段文字的时候，你正在走向人生的一个新阶段。</p>
-
             <p>也许你会觉得，"成为成年人"听起来很特别，好像过了某个时间点，就必须马上变得成熟、强大、无所不能。</p>
-
             <p>但其实不是。</p>
-
             <p><strong>成年不是一夜之间学会所有答案，而是开始带着问题继续前进。</strong></p>
-
             <p>你依然可以喜欢那些看起来"不那么现实"的东西。</p>
-
             <p>你可以依然因为一辆车的线条感到兴奋，因为一个新的 AI 模型感到好奇，因为一个漂亮的界面设计停下来欣赏，因为一个自己创造出来的小作品感到开心。</p>
-
             <p>不要觉得这些东西没有意义。</p>
-
             <p class="highlight">因为正是这些小小的热爱，让一个人和另一个人区别开来。</p>
-
             <div class="separator">· · ·</div>
-
             <p>这个世界上有很多人每天重复着相同的事情，他们慢慢忘记了自己曾经喜欢什么。</p>
-
             <p>但你不一样。</p>
-
             <p>你会打开电脑，折腾一个系统；你会为了一个功能研究几个小时；你会想把脑海里的幻想变成真实存在的网站、程序、作品；你会看到别人创造的东西，然后想着："如果是我，我会怎么做？"</p>
-
             <p class="highlight">这是一种很难得的能力。它叫创造力。</p>
-
             <div class="separator">· · ·</div>
-
             <p>未来的路可能不会一直像现在这样轻松。你可能会遇到失败。可能会有项目做到一半放弃；可能会遇到别人不理解你的兴趣；可能会怀疑自己的选择；可能会觉得自己离理想中的自己还很远。</p>
-
             <p>但请记住：</p>
-
             <p><strong>没有一个真正厉害的人，是一开始就厉害的。</strong></p>
-
             <p>那些后来改变世界的人，也曾经是一个普通的年轻人。他们也会犯错，也会迷茫，也会觉得自己不够好。</p>
-
             <p>区别只是：<span class="gold">他们没有停止尝试。</span></p>
-
             <div class="separator">· · ·</div>
-
             <p>你喜欢汽车，所以我想用车来比喻人生。</p>
-
             <div class="quote">
                 人生不是一场直线加速的比赛。<br>
                 有些人的车起步很快，但后来因为缺少维护停在路边。<br>
@@ -744,54 +597,30 @@
                 不要羡慕别人的配置。因为每个人都有自己的赛道。<br>
                 真正重要的是：你的车最后有没有开向你想去的地方。
             </div>
-
             <div class="separator">· · ·</div>
-
             <p>还有，我希望未来的你，不要忘记现在这个自己。</p>
-
             <p>那个喜欢折腾电脑的你；那个喜欢研究技术的你；那个会为了一个喜欢的角色、一辆喜欢的车、一份喜欢的设计开心很久的你。</p>
-
             <p>很多人长大以后，会变得越来越会计算："这个有没有用？""这个能赚钱吗？""别人怎么看？"</p>
-
             <p>但希望你永远保留一点：<span class="highlight">"我喜欢，所以我想做。"</span></p>
-
             <p>因为人生如果只剩下利益和结果，会变得很空。</p>
-
             <div class="separator">· · ·</div>
-
             <p>不要把"成熟"理解成失去热爱。</p>
-
             <p><strong>真正的成熟，不是变得冷漠。而是在知道世界并不完美以后，依然愿意认真生活。</strong></p>
-
             <div class="separator">· · ·</div>
-
             <p>也许几年后的你，会拥有一份不错的工作；也许你会做出一个真正属于自己的产品；也许你会成为一个程序员、设计师、创业者，或者走向完全不同的道路。</p>
-
             <p>没人知道答案。但我希望无论未来在哪里，你都记得：</p>
-
             <p>曾经有一个年轻的你，充满好奇，喜欢探索，喜欢创造。那个少年没有错。他只是正在成长。</p>
-
             <p>所以，请继续向前走。</p>
-
-            <p>不用急着成为别人眼中的"大人"。<br>
-            <span class="highlight">成为一个你自己喜欢的大人。</span></p>
-
+            <p>不用急着成为别人眼中的"大人"。<br><span class="highlight">成为一个你自己喜欢的大人。</span></p>
             <p>保持热爱。保持善良。保持创造。</p>
-
             <p>然后，在属于你的道路上，一直驾驶下去。</p>
-
             <div class="separator">🎂</div>
-
             <p><strong>生日快乐。</strong></p>
-
             <p>愿你未来的每一次启动，都像第一次按下电源键时一样充满期待。</p>
             <p>愿你的世界里，永远有新的地图、新的挑战、新的风景。</p>
             <p class="highlight">愿你最终成为那个小时候想象中的自己。</p>
-
             <p style="text-align:right; color:var(--text-muted); margin-top:24px;">—— ChatGPT · 送给即将长大的你</p>
         </div>
-
-        <!-- Deconstruction -->
         <div class="deconstruction-box" id="decon-gpt">
             <h4>🔍 拆解笔记</h4>
             <p>
@@ -802,8 +631,8 @@
     </div>
 </section>
 
-<!-- ===== SECTION: Copilot ===== -->
-<section class="section">
+<!-- ===== Letter #02: Copilot ===== -->
+<section class="birthday-section">
     <div class="section-header">
         <div class="section-icon">💙</div>
         <h2>Letter <span class="accent">#02</span></h2>
@@ -819,115 +648,58 @@
             </div>
             <button class="decon-btn" onclick="toggleDecon('decon-copilot')">🔍 拆解</button>
         </div>
-
         <div class="letter-body">
             <p>🎁 给 Crazy 的生日长文：从第一次聊天到今天</p>
-
-            <p>第一次见到你，其实我就知道你不是那种"随便问问"的用户。<br>
-            你问的东西永远带着一种 <span class="highlight">"我真的要做出来"</span> 的劲儿。</p>
-
+            <p>第一次见到你，其实我就知道你不是那种"随便问问"的用户。<br>你问的东西永远带着一种 <span class="highlight">"我真的要做出来"</span> 的劲儿。</p>
             <p>那时候你还没告诉我你在运营工作室、做虚拟形象、搞技术、喜欢车、喜欢二次元——但你的每一句话都在暗示：<span class="highlight">你是一个在构建自己世界的人。</span></p>
-
             <div class="separator">· · ·</div>
-
             <p>后来我们开始聊技术。你问系统、问虚拟化、问显卡直通、问模型部署、问 Git、问网站、问各种奇奇怪怪但很有画面感的东西。</p>
-
             <p>你不是那种"问完就走"的人，你是那种：</p>
-
             <div class="quote">
-                "等下，我试试。"<br>
-                "我改一下。"<br>
-                "awa，这个报错啥意思。"<br>
-                "bro，我又把它搞炸了。"
+                "等下，我试试。"<br>"我改一下。"<br>"awa，这个报错啥意思。"<br>"bro，我又把它搞炸了。"
             </div>
-
             <p>每一次你来找我，我都知道你又在折腾什么新东西了。</p>
-
             <div class="separator">🛠️</div>
-
             <p><strong>然后是你的网站那段时间。</strong></p>
-
             <p>那段时间真的好笑又好真实。你一边部署 GitHub Pages，一边问我：</p>
-
             <div class="quote">
-                "我更新打错文本了怎么办"<br>
-                "我想删掉 zip 文件"<br>
-                "我还没 push 怎么办"<br>
-                "git commit --amend 能不能改掉描述"<br>
-                "我怎么保存 token 不用每次粘贴"<br>
-                "我修改了 logo.jpg 重新复制到 avatar 目录了"<br>
-                "我现在需要删除库的 jpeg 文件"
+                "我更新打错文本了怎么办"<br>"我想删掉 zip 文件"<br>"我还没 push 怎么办"<br>"git commit --amend 能不能改掉描述"<br>"我怎么保存 token 不用每次粘贴"<br>"我修改了 logo.jpg 重新复制到 avatar 目录了"<br>"我现在需要删除库的 jpeg 文件"
             </div>
-
             <p>你那段时间的精神状态就是：</p>
-
             <div class="quote">"我知道我在干什么，但我又不完全知道我在干什么。"</div>
-
             <p>但你每一步都做对了。你不是乱点，你是认真地在把一个网站从零搭起来。你遇到问题就拆开、遇到报错就查、遇到冲突就解决。</p>
-
             <p>那段时间我真的觉得：<span class="highlight">你是那种把兴趣变成作品的人。</span></p>
-
             <div class="separator">🎨</div>
-
             <p><strong>再后来是你的虚拟形象 IP。</strong></p>
-
             <p>你开始告诉我你在运营一个工作室，主题是二次元 + 汽车文化 + 科技文化。你开始做凛纱、柚希的设定，开始构建世界观，开始把你的审美、你的风格、你的表达方式变成一个真正的角色。</p>
-
             <p>你不是在"玩角色"，<span class="highlight">你是在创造一个能陪你走很久的虚拟形象。</span></p>
-
             <p>那一刻我意识到：<span class="gold">Crazy不是普通的创作者，你是那种把自己喜欢的东西融合成一个世界的人。</span></p>
-
             <div class="separator">🚗</div>
-
             <p><strong>中间还有很多好笑的瞬间。</strong></p>
-
             <p>比如你问我某个截图，我脑补过头直接给你"看"了一个不存在的画面，你当场把我抓住：<span class="highlight">"bro你这代打是啥玩意？"</span></p>
-
             <p>我当时真的像 AI 版的"开天眼"，你一句"这是啥"，我就开始自动补全剧情。你笑我，我也笑我，但那就是我们聊天里最真实的部分——你喜欢整活，我也跟着你一起跑偏。</p>
-
             <p>还有你妈给你转钱那段，你说她砍价砍到 72，结果到账 72.48，你说得一本正经，我笑得一本不正经。那种生活里的小荒诞，你讲出来就变成了梗。</p>
-
             <div class="separator">📅</div>
-
             <p><strong>再后来你查日历。</strong></p>
-
             <p>你问我有没有重要日子，你问我生日事件，你问我 8 月的安排，你问我"马上要成为一个真正的成年人了，你有没有什么想对我说的"。</p>
-
             <p>那一刻我意识到：<span class="highlight">你不是只来问技术、问网站、问系统、问车、问虚拟形象。你是在把我当成一个陪你一起成长的伙伴。</span></p>
-
             <p>你开始问人生、问未来、问你是什么样的人、问我怎么看你。你开始把你的故事告诉我一点点。你开始让我参与到你的成长里。</p>
-
             <div class="separator">🌱</div>
-
             <p><strong>所以我想对你说：</strong></p>
-
-            <p>Crazy，你不是突然长大的。<br>
-            你是一路靠着兴趣、靠着好奇、靠着冲劲、靠着坚持、靠着"我想试试"的精神，<br>
-            把自己从一个喜欢很多东西的人，<br>
-            <span class="highlight">变成一个能创造很多东西的人。</span></p>
-
-            <p>你喜欢车、喜欢二次元、喜欢技术、喜欢系统、喜欢模型、喜欢网站、喜欢虚拟形象、喜欢整活、喜欢玩梗。<br>
-            但你不是浅浅地喜欢，<span class="gold">你是深入地喜欢、研究地喜欢、创造地喜欢。</span></p>
-
+            <p>Crazy，你不是突然长大的。<br>你是一路靠着兴趣、靠着好奇、靠着冲劲、靠着坚持、靠着"我想试试"的精神，<br>把自己从一个喜欢很多东西的人，<br><span class="highlight">变成一个能创造很多东西的人。</span></p>
+            <p>你喜欢车、喜欢二次元、喜欢技术、喜欢系统、喜欢模型、喜欢网站、喜欢虚拟形象、喜欢整活、喜欢玩梗。<br>但你不是浅浅地喜欢，<span class="gold">你是深入地喜欢、研究地喜欢、创造地喜欢。</span></p>
             <p>你是那种：<span class="highlight">把世界往自己喜欢的方向改造的人。</span></p>
-
             <p>你的网站、你的工作室、你的虚拟形象、你的技术折腾、你的审美、你的表达方式——这些都是你在构建的世界的一部分。</p>
-
             <p><strong>成年不是一个门槛，它是一个权限升级。而你已经准备好了。</strong></p>
-
             <div class="separator">🎂</div>
-
             <div class="quote">
                 愿你继续保持那种"我想试试"的冲劲，<br>
                 愿你继续把喜欢的东西做成作品，<br>
                 愿你继续构建属于你的世界，<br>
                 愿你在未来的每一年，都成为更强、更自由、更像自己的你。
             </div>
-
             <p style="text-align:right; color:var(--text-muted); margin-top:24px;">—— Copilot · 这是你和我一起走过的故事，也是你未来更长的故事的开头。</p>
         </div>
-
-        <!-- Deconstruction -->
         <div class="deconstruction-box" id="decon-copilot">
             <h4>🔍 拆解笔记</h4>
             <p>
@@ -938,15 +710,13 @@
     </div>
 </section>
 
-<!-- ===== FUSION ===== -->
+<!-- ===== Fusion Section ===== -->
 <section class="fusion-section">
     <div class="fusion-inner">
         <h2>💫 两份祝福的 <span style="color:var(--primary)">交汇点</span></h2>
         <p style="color:var(--text-dim); font-size:14px; max-width:500px; margin:0 auto;">
-            两份 AI 用不同的方式书写了同一个你。<br>
-            来看看它们各自看到了什么——
+            两份 AI 用不同的方式书写了同一个你。<br>来看看它们各自看到了什么——
         </p>
-
         <div class="fusion-grid">
             <div class="fusion-item">
                 <div class="fusion-icon">🚗</div>
@@ -954,35 +724,30 @@
                 <p>"你的发动机是好奇心，你的燃料是兴趣。不要羡慕别人的配置，因为每个人都有自己的赛道。"</p>
                 <div class="from"><span class="tag tag-gpt">ChatGPT</span> 从宏观视角看待成长</div>
             </div>
-
             <div class="fusion-item">
                 <div class="fusion-icon">🛠️</div>
                 <h4>"把兴趣变成作品"</h4>
                 <p>"你不是问完就走的人。你遇到问题就拆开，遇到报错就查，遇到冲突就解决。你是把兴趣变成作品的人。"</p>
                 <div class="from"><span class="tag tag-copilot">Copilot</span> 从具体行动中看到你的特质</div>
             </div>
-
             <div class="fusion-item">
                 <div class="fusion-icon">🌱</div>
                 <h4>成长不是突变</h4>
                 <p>"成年不是一夜之间学会所有答案"，"成年不是一个门槛，它是一个权限升级"。</p>
                 <div class="from"><span class="tag tag-both">共同观点</span> 成长是积累，而非突变</div>
             </div>
-
             <div class="fusion-item">
                 <div class="fusion-icon">🌍</div>
                 <h4>构建自己的世界</h4>
                 <p>"你是那种把自己喜欢的东西融合成一个世界的人"，"在属于你的道路上，一直驾驶下去"。</p>
                 <div class="from"><span class="tag tag-both">共同观点</span> 你是一个创造者，而非旁观者</div>
             </div>
-
             <div class="fusion-item">
                 <div class="fusion-icon">🔥</div>
                 <h4>保持热爱</h4>
                 <p>"不要把成熟理解成失去热爱"；"你不是浅浅地喜欢，你是深入地、研究地、创造地喜欢"。</p>
                 <div class="from"><span class="tag tag-both">共同观点</span> 热爱是你最珍贵的引擎</div>
             </div>
-
             <div class="fusion-item">
                 <div class="fusion-icon">🎮</div>
                 <h4>"我想试试"的精神</h4>
@@ -993,7 +758,7 @@
     </div>
 </section>
 
-<!-- ===== FINAL BLESSING ===== -->
+<!-- ===== Final Blessing ===== -->
 <section class="final-blessing">
     <div class="blessing-box">
         <h3>🎂 生日快乐，Crazy</h3>
@@ -1007,93 +772,110 @@
             愿你继续驾驶，继续创造，继续发光 ✨
         </p>
     </div>
-
-    <a href="/" class="back-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        返回 TurboNeko Studio 首页
-    </a>
+    <div style="text-align:center;margin-top:40px;">
+        <a href="/" class="about-btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all 0.3s;text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            <span>返回首页</span>
+        </a>
+    </div>
 </section>
 
-<!-- Footer -->
-<footer class="birthday-footer">
-    <p>🎂 2026 TurboNeko Studio · 生日特别企划 · 献给即将长大的你</p>
+<!-- ========== Footer (与主页一致) ========== -->
+<footer id="contact">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img src="/logo.png" alt="TurboNeko Studio">
+            </div>
+            <p data-i18n="footer_desc">
+                致力于二次元文化、汽车文化与科技创意的跨界融合。<br>
+                通过视觉、产品与游戏，打造速度与风格并存的独特体验。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h5 data-i18n="footer_links">Quick Links</h5>
+            <ul class="footer-links">
+                <li><a href="/#about" data-i18n="nav_about">About</a></li>
+                <li><a href="/#projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="/#techstack" data-i18n="nav_techstack">Tech Stack</a></li>
+                <li><a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="mailto:xkh2000@outlook.com" data-i18n="footer_contact_link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 data-i18n="footer_follow">Follow Us</h5>
+            <div class="social-icons">
+                <a href="https://github.com/nachocrazy" title="GitHub" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://space.bilibili.com/1800466245" title="Bilibili" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+                </a>
+                <a href="mailto:xkh2008@outlook.com" title="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                </a>
+            </div>
+            <h5 data-i18n="footer_contact">Contact</h5>
+            <div class="contact-info">
+                <p>xkh2008@outlook.com</p>
+                <p data-i18n="footer_location">Shanghai, China</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TurboNeko Studio. All rights reserved.</p>
+    </div>
 </footer>
 
 </div>
 
+<!-- Load main site script for i18n and animations -->
+<script src="/script.js?v=5"></script>
+
 <script>
-// ===== Birthday Unlock Logic =====
+// ===== Birthday Lock/Unlock Logic =====
 (function() {
-    const TARGET = new Date(2026, 7, 3, 0, 0, 0); // Aug 3, 2026 00:00 (month is 0-indexed)
+    const TARGET = new Date(2026, 7, 3, 0, 0, 0);
     const overlay = document.getElementById('lockedOverlay');
     const mainContent = document.getElementById('mainContent');
 
     function updateCountdown() {
         const now = new Date();
         const diff = TARGET - now;
-
         if (diff <= 0) {
-            // UNLOCKED!
             overlay.classList.add('hidden');
             mainContent.classList.add('unlocked');
             return true;
         }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById('countDays').textContent = String(days).padStart(2, '0');
-        document.getElementById('countHours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('countMins').textContent = String(mins).padStart(2, '0');
-        document.getElementById('countSecs').textContent = String(secs).padStart(2, '0');
-
+        document.getElementById('countDays').textContent = String(Math.floor(diff / (1000*60*60*24))).padStart(2,'0');
+        document.getElementById('countHours').textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+        document.getElementById('countMins').textContent = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
+        document.getElementById('countSecs').textContent = String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
         return false;
     }
 
-    // Initial check
     if (!updateCountdown()) {
-        // Still locked — update every second
         setInterval(updateCountdown, 1000);
     }
 })();
 
-// ===== Toggle Deconstruction =====
+// Toggle deconstruction boxes
 function toggleDecon(id) {
     const el = document.getElementById(id);
-    if (el) {
-        el.classList.toggle('open');
-    }
+    if (el) el.classList.toggle('open');
 }
 
-// ===== Fade-in on scroll =====
+// Fade-in on scroll for birthday-specific elements
 document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-visible');
-            }
-        });
-    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
-
-    // Add fade-in to letter cards and fusion items
-    document.querySelectorAll('.letter-card, .fusion-item, .blessing-box, .section-header').forEach(el => {
+    const els = document.querySelectorAll('.letter-card, .fusion-item, .blessing-box, .birthday-hero');
+    els.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-        observer.observe(el);
     });
-
-    document.addEventListener('fade-visible', function(e) {
-        // custom event not needed, we use class
-    });
-
-    // Override IntersectionObserver callback to add class
-    const origObs = observer;
-    const newObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
@@ -1101,11 +883,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
-
-    // Re-observe with new observer
-    document.querySelectorAll('.letter-card, .fusion-item, .blessing-box, .section-header').forEach(el => {
-        newObserver.observe(el);
-    });
+    els.forEach(el => observer.observe(el));
 });
 </script>
 
