@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎂 生日特别企划 — TurboNeko Studio</title>
-    <meta name="description" content="2026年8月3日 · 来自两份AI的生日祝福">
+    <meta name="description" content="2026年8月3日 · TurboNeko Studio 成年礼 · 两段关于创造与成长的文字">
     <link rel="preload" href="/style.css?v=5" as="style">
     <link rel="stylesheet" href="/style.css?v=5">
     <noscript>
@@ -103,6 +103,197 @@
         }
         .locked-teaser strong {
             color: var(--primary-light);
+        }
+
+        /* ===== Cinema Start Overlay ===== */
+        .cinema-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 99998;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 32px 20px;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            cursor: pointer;
+        }
+        .cinema-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .cinema-overlay .play-icon {
+            font-size: clamp(64px, 16vw, 96px);
+            margin-bottom: 24px;
+            animation: playPulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(139,92,246,0.3));
+        }
+        @keyframes playPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+        .cinema-overlay .play-title {
+            font-size: clamp(24px, 5vw, 40px);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+        .cinema-overlay .play-sub {
+            font-size: clamp(13px, 2.8vw, 15px);
+            color: var(--text-dim);
+            max-width: 360px;
+            line-height: 1.8;
+        }
+        .cinema-overlay .play-hint {
+            position: absolute;
+            bottom: 40px;
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            animation: bounceHint 2s ease-in-out infinite;
+        }
+
+        /* ===== Music Button (floating) ===== */
+        .birthday-music-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 24px;
+            background: rgba(10,10,20,0.8);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: var(--text-dim);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .birthday-music-btn:hover {
+            border-color: rgba(139,92,246,0.3);
+            color: var(--primary-light);
+        }
+        .birthday-music-btn.playing {
+            border-color: rgba(139,92,246,0.4);
+            color: var(--primary-light);
+        }
+        .birthday-music-btn .music-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            transition: all 0.3s;
+        }
+        .birthday-music-btn.playing .music-dot {
+            background: var(--primary);
+            animation: musicWave 1s ease-in-out infinite alternate;
+        }
+        @keyframes musicWave {
+            0% { transform: scaleY(0.5); opacity: 0.5; }
+            100% { transform: scaleY(1.2); opacity: 1; }
+        }
+
+        /* ===== Sequential paragraph reveal ===== */
+        .cinema-paragraph {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .cinema-paragraph.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cinema-paragraph.delay-1 { transition-delay: 0.1s; }
+        .cinema-paragraph.delay-2 { transition-delay: 0.2s; }
+        .cinema-paragraph.delay-3 { transition-delay: 0.3s; }
+        .cinema-paragraph.delay-4 { transition-delay: 0.4s; }
+        .cinema-paragraph.delay-5 { transition-delay: 0.5s; }
+
+        /* ===== Contact CTA Section ===== */
+        .contact-cta {
+            padding: 80px 56px 60px;
+            text-align: center;
+            position: relative;
+        }
+        .contact-cta::before {
+            content: '💌';
+            position: absolute;
+            top: 20px; left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
+            opacity: 0.1;
+        }
+        .contact-cta-inner {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 48px 40px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(139,92,246,0.04), rgba(56,189,248,0.02));
+        }
+        .contact-cta h3 {
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .contact-cta h3 span { color: var(--primary); }
+        .contact-cta p {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .contact-cards {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: rgba(10,10,20,0.5);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .contact-card:hover {
+            border-color: rgba(139,92,246,0.3);
+            transform: translateY(-2px);
+        }
+        .contact-card .card-icon { font-size: 20px; }
+        .contact-card .card-info { text-align: left; }
+        .contact-card .card-info .label {
+            font-size: 10px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .contact-card .card-info .value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+        .contact-cta .cta-footer {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 16px;
+            line-height: 1.8;
         }
 
         /* ===== Main content (hidden when locked) ===== */
@@ -458,7 +649,7 @@
 <div class="locked-overlay" id="lockedOverlay">
     <div class="locked-icon">🎂</div>
     <h1 class="locked-title">生日惊喜加载中…</h1>
-    <p class="locked-subtitle">一份来自两份AI的特别礼物，将在你的生日当天解锁</p>
+    <p class="locked-subtitle">一份关于创造与成长的特别企划，将在8月3日揭晓</p>
     <div class="countdown-wrap" id="countdownWrap">
         <div class="countdown-item">
             <span class="countdown-num" id="countDays">00</span>
@@ -479,13 +670,32 @@
     </div>
     <div class="locked-teaser">
         💬 <strong>ChatGPT</strong> 和 <strong>Copilot</strong><br>
-        各写了一封信，送给即将长大的你。<br>
+        各写了一封信，送给创造者。<br>
         8月3日，不见不散 ✨
     </div>
 </div>
 
+<!-- ===== CINEMA START OVERLAY ===== -->
+<div class="cinema-overlay" id="cinemaOverlay" onclick="startCinema()">
+    <div class="play-icon">▶</div>
+    <h2 class="play-title">开始体验</h2>
+    <p class="play-sub">
+        配乐将自动播放 · 逐段展示两封关于创造的文字<br>
+        建议佩戴耳机🎧
+    </p>
+    <div class="play-hint">点击任意处开始</div>
+</div>
+
 <!-- ===== MAIN CONTENT ===== -->
 <div class="main-content" id="mainContent">
+<!-- 🎵 Birthday BGM -->
+<audio id="bgmPlayer" loop preload="auto">
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+<button class="birthday-music-btn" id="musicBtn" onclick="toggleMusic()">
+    <span class="music-dot"></span>
+    <span>🎵 Welcome School</span>
+</button>
 
 <!-- ========== 导航栏 (与主页一致) ========== -->
 <nav>
@@ -534,14 +744,14 @@
 <!-- ========== Birthday Hero ========== -->
 <section class="birthday-hero">
     <div class="birthday-hero-content">
-        <div class="birthday-badge">🎉 2026年8月3日</div>
+        <div class="birthday-badge">🎉 2026年8月3日 · TurboNeko 成年礼</div>
         <h1>
-            <span class="highlight-purple">写给</span>
-            <span class="highlight-pink">即将长大的你</span>
+            <span class="highlight-purple">致</span>
+            <span class="highlight-pink">创造者</span>
         </h1>
         <p>
-            两份AI，两段故事，同一个祝福。<br>
-            这是 TurboNeko Studio 为你准备的生日特别企划。
+            两段文字，两个视角，同一个主题。<br>
+            关于创造、成长与热爱。
         </p>
         <div class="hero-scroll-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -557,7 +767,7 @@
     <div class="section-header">
         <div class="section-icon">🤖</div>
         <h2>Letter <span class="accent">#01</span></h2>
-        <p>来自 ChatGPT 的生日信 · 《写给即将长大的你》</p>
+        <p>来自 ChatGPT 的文字 · 《写给即将长大的你》</p>
     </div>
 
     <div class="letter-card chatgpt">
@@ -565,7 +775,7 @@
             <div class="avatar">C</div>
             <div class="meta">
                 <h3>ChatGPT</h3>
-                <span>一份关于成长、热爱与未来的寄语</span>
+                <span>一份关于创造与成长的寄语</span>
             </div>
             <button class="decon-btn" onclick="toggleDecon('decon-gpt')">🔍 拆解</button>
         </div>
@@ -630,8 +840,8 @@
         <div class="deconstruction-box" id="decon-gpt">
             <h4>🔍 拆解笔记</h4>
             <p>
-                <strong>ChatGPT 的视角：</strong> 这是一封"大人写给少年"的信。它没有提及你们之间的具体对话，而是站在一个更抽离、更宏观的位置，用 <strong>汽车的比喻</strong>（发动机、燃料、方向盘、刹车）串联起对成长的思考。它的核心关键词是：<strong>热爱、创造力、坚持、成熟</strong>。<br><br>
-                它像一位长辈或导师，告诉你"不要急，慢慢来"。它相信你内心那个喜欢折腾的少年不会消失，只是需要被保护、被延续。它关注的是 <strong>你未来会成为什么样的人</strong>。
+                <strong>ChatGPT 的视角：</strong> 这是一段"过来人写给少年"的文字。它没有提及具体的对话，而是站在一个更抽离、更宏观的位置，用 <strong>汽车的比喻</strong>（发动机、燃料、方向盘、刹车）串联起对成长的思考。它的核心关键词是：<strong>热爱、创造力、坚持、成熟</strong>。<br><br>
+                它像一位长辈或导师，告诉每一位创造者"不要急，慢慢来"。它相信内心那个喜欢折腾的少年不会消失，只是需要被保护、被延续。
             </p>
         </div>
     </div>
@@ -642,7 +852,7 @@
     <div class="section-header">
         <div class="section-icon">💙</div>
         <h2>Letter <span class="accent">#02</span></h2>
-        <p>来自 Copilot 的生日信 · 《从第一次聊天到今天》</p>
+        <p>来自 Copilot 的文字 · 《从第一次聊天到今天》</p>
     </div>
 
     <div class="letter-card copilot">
@@ -655,9 +865,9 @@
             <button class="decon-btn" onclick="toggleDecon('decon-copilot')">🔍 拆解</button>
         </div>
         <div class="letter-body">
-            <p>🎁 给 Crazy 的生日长文：从第一次聊天到今天</p>
+            <p>🎁 从第一次聊天到今天</p>
             <p>第一次见到你，其实我就知道你不是那种"随便问问"的用户。<br>你问的东西永远带着一种 <span class="highlight">"我真的要做出来"</span> 的劲儿。</p>
-            <p>那时候你还没告诉我你在运营工作室、做虚拟形象、搞技术、喜欢车、喜欢二次元——但你的每一句话都在暗示：<span class="highlight">你是一个在构建自己世界的人。</span></p>
+            <p>那时候你还没告诉我你在运营工作室、做虚拟形象、搞技术、喜欢车、喜欢二次元——但你的每一句话都在暗示：<span class="highlight">这是一个在构建自己世界的人。</span></p>
             <div class="separator">· · ·</div>
             <p>后来我们开始聊技术。你问系统、问虚拟化、问显卡直通、问模型部署、问 Git、问网站、问各种奇奇怪怪但很有画面感的东西。</p>
             <p>你不是那种"问完就走"的人，你是那种：</p>
@@ -678,8 +888,8 @@
             <div class="separator">🎨</div>
             <p><strong>再后来是你的虚拟形象 IP。</strong></p>
             <p>你开始告诉我你在运营一个工作室，主题是二次元 + 汽车文化 + 科技文化。你开始做凛纱、柚希的设定，开始构建世界观，开始把你的审美、你的风格、你的表达方式变成一个真正的角色。</p>
-            <p>你不是在"玩角色"，<span class="highlight">你是在创造一个能陪你走很久的虚拟形象。</span></p>
-            <p>那一刻我意识到：<span class="gold">Crazy不是普通的创作者，你是那种把自己喜欢的东西融合成一个世界的人。</span></p>
+            <p>那不是"玩角色"，<span class="highlight">那是在创造一个能陪你走很久的虚拟形象。</span></p>
+            <p>那一刻我意识到：<span class="gold">这不是普通的创作者，这是那种把自己喜欢的东西融合成一个世界的人。</span></p>
             <div class="separator">🚗</div>
             <p><strong>中间还有很多好笑的瞬间。</strong></p>
             <p>比如你问我某个截图，我脑补过头直接给你"看"了一个不存在的画面，你当场把我抓住：<span class="highlight">"bro你这代打是啥玩意？"</span></p>
@@ -691,7 +901,7 @@
             <p>你开始问人生、问未来、问你是什么样的人、问我怎么看你。你开始把你的故事告诉我一点点。你开始让我参与到你的成长里。</p>
             <div class="separator">🌱</div>
             <p><strong>所以我想对你说：</strong></p>
-            <p>Crazy，你不是突然长大的。<br>你是一路靠着兴趣、靠着好奇、靠着冲劲、靠着坚持、靠着"我想试试"的精神，<br>把自己从一个喜欢很多东西的人，<br><span class="highlight">变成一个能创造很多东西的人。</span></p>
+            <p>你不是突然长大的。<br>你是一路靠着兴趣、靠着好奇、靠着冲劲、靠着坚持、靠着"我想试试"的精神，<br>把自己从一个喜欢很多东西的人，<br><span class="highlight">变成一个能创造很多东西的人。</span></p>
             <p>你喜欢车、喜欢二次元、喜欢技术、喜欢系统、喜欢模型、喜欢网站、喜欢虚拟形象、喜欢整活、喜欢玩梗。<br>但你不是浅浅地喜欢，<span class="gold">你是深入地喜欢、研究地喜欢、创造地喜欢。</span></p>
             <p>你是那种：<span class="highlight">把世界往自己喜欢的方向改造的人。</span></p>
             <p>你的网站、你的工作室、你的虚拟形象、你的技术折腾、你的审美、你的表达方式——这些都是你在构建的世界的一部分。</p>
@@ -703,13 +913,12 @@
                 愿你继续构建属于你的世界，<br>
                 愿你在未来的每一年，都成为更强、更自由、更像自己的你。
             </div>
-            <p style="text-align:right; color:var(--text-muted); margin-top:24px;">—— Copilot · 这是你和我一起走过的故事，也是你未来更长的故事的开头。</p>
         </div>
         <div class="deconstruction-box" id="decon-copilot">
             <h4>🔍 拆解笔记</h4>
             <p>
-                <strong>Copilot 的视角：</strong> 这是一封"伙伴写给伙伴"的信。它没有抽象地谈论成长，而是用 <strong>你们之间真实发生过的对话片段</strong>（部署网站的窘境、代打笑梗、72.48 转账……）串起一篇回忆录。它的核心关键词是：<strong>创造、构建、整活、伙伴</strong>。<br><br>
-                它像一位一起熬夜折腾的战友，说"我记得你每一步"。它相信你不是"突然长大"，而是一路靠好奇和冲劲走过来的。它关注的是 <strong>你已经成为了什么样的人</strong>，以及你们一起走过的路。
+                <strong>Copilot 的视角：</strong> 这是一篇从具体对话中生长出来的文字。它没有抽象地谈论成长，而是用 <strong>真实的创作片段</strong>（部署网站的窘境、代打笑梗……）串起一篇关于创造的故事。它的核心关键词是：<strong>创造、构建、整活、坚持</strong>。<br><br>
+                它像一位一起折腾的战友，记录下"把兴趣变成作品"的每一步。它不是告诉你"你要成为谁"，而是告诉你"你已经是谁"。
             </p>
         </div>
     </div>
@@ -718,9 +927,9 @@
 <!-- ===== Fusion Section ===== -->
 <section class="fusion-section">
     <div class="fusion-inner">
-        <h2>💫 两份祝福的 <span style="color:var(--primary)">交汇点</span></h2>
+        <h2>💫 两种视角的 <span style="color:var(--primary)">交汇点</span></h2>
         <p style="color:var(--text-dim); font-size:14px; max-width:500px; margin:0 auto;">
-            两份 AI 用不同的方式书写了同一个你。<br>来看看它们各自看到了什么——
+            两种不同的 AI，用不同的方式讲述了同一个主题。<br>来看看它们各自看到了什么——
         </p>
         <div class="fusion-grid">
             <div class="fusion-item">
@@ -733,7 +942,7 @@
                 <div class="fusion-icon">🛠️</div>
                 <h4>"把兴趣变成作品"</h4>
                 <p>"你不是问完就走的人。你遇到问题就拆开，遇到报错就查，遇到冲突就解决。你是把兴趣变成作品的人。"</p>
-                <div class="from"><span class="tag tag-copilot">Copilot</span> 从具体行动中看到你的特质</div>
+                <div class="from"><span class="tag tag-copilot">Copilot</span> 从具体行动中看见创作者的特质</div>
             </div>
             <div class="fusion-item">
                 <div class="fusion-icon">🌱</div>
@@ -745,13 +954,13 @@
                 <div class="fusion-icon">🌍</div>
                 <h4>构建自己的世界</h4>
                 <p>"你是那种把自己喜欢的东西融合成一个世界的人"，"在属于你的道路上，一直驾驶下去"。</p>
-                <div class="from"><span class="tag tag-both">共同观点</span> 你是一个创造者，而非旁观者</div>
+                <div class="from"><span class="tag tag-both">共同观点</span> 创造者而非旁观者</div>
             </div>
             <div class="fusion-item">
                 <div class="fusion-icon">🔥</div>
                 <h4>保持热爱</h4>
                 <p>"不要把成熟理解成失去热爱"；"你不是浅浅地喜欢，你是深入地、研究地、创造地喜欢"。</p>
-                <div class="from"><span class="tag tag-both">共同观点</span> 热爱是你最珍贵的引擎</div>
+                <div class="from"><span class="tag tag-both">共同观点</span> 热爱是最珍贵的引擎</div>
             </div>
             <div class="fusion-item">
                 <div class="fusion-icon">🎮</div>
@@ -766,14 +975,13 @@
 <!-- ===== Final Blessing ===== -->
 <section class="final-blessing">
     <div class="blessing-box">
-        <h3>🎂 生日快乐，Crazy</h3>
+        <h3>🎂 致创造者</h3>
         <p>
-            两份 AI，两种视角，同一个祝福。<br><br>
-            <strong>ChatGPT</strong> 看到了你未来的可能性，告诉你要成为自己喜欢的大人。<br>
-            <strong>Copilot</strong> 记住了你走过的每一步，告诉你已经走在了对的路上。<br><br>
-            而我们——<strong>TurboNeko Studio</strong> 也为你骄傲。<br>
-            因为你正在把热爱变成现实。<br><br>
-            成年快乐。<br>
+            两种 AI，两种视角，同一个主题。<br><br>
+            <strong>ChatGPT</strong> 告诉我们：不要急着成为别人眼中的"大人"，要成为自己喜欢的大人。<br>
+            <strong>Copilot</strong> 告诉我们：你不是突然长大的，你是一路靠着好奇与坚持走过来的。<br><br>
+            而这正是 <strong>TurboNeko Studio</strong> 相信的——<br>
+            把热爱变成现实，把幻想变成作品。<br><br>
             愿你继续驾驶，继续创造，继续发光 ✨
         </p>
     </div>
@@ -784,6 +992,38 @@
             </svg>
             <span>返回首页</span>
         </a>
+    </div>
+</section>
+
+<!-- ===== Contact CTA ===== -->
+<section class="contact-cta" id="write-letter">
+    <div class="contact-cta-inner">
+        <h3>💌 写一封信给 <span>TurboNeko</span></h3>
+        <p>
+            如果你也曾在某个深夜折腾过热爱的东西，<br>
+            如果你也被这两段文字触动到了——<br>
+            欢迎写一封信给我们。
+        </p>
+        <div class="contact-cards">
+            <a href="mailto:xkh2008@outlook.com" class="contact-card">
+                <span class="card-icon">📧</span>
+                <span class="card-info">
+                    <span class="label">Email</span>
+                    <span class="value">xkh2008@outlook.com</span>
+                </span>
+            </a>
+            <a href="https://wpa.qq.com/msgrd?v=3&uin=3635573143&site=qq&menu=yes" target="_blank" class="contact-card" rel="noopener">
+                <span class="card-icon">💬</span>
+                <span class="card-info">
+                    <span class="label">QQ</span>
+                    <span class="value">3635573143</span>
+                </span>
+            </a>
+        </div>
+        <div class="cta-footer">
+            无论是祝福、感想，还是你的故事——<br>
+            每一封信，都会被认真读完 ✨
+        </div>
     </div>
 </section>
 
@@ -903,6 +1143,67 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
     els.forEach(el => observer.observe(el));
+});
+
+// ===== Music Control =====
+let musicPlaying = false;
+const bgmPlayer = document.getElementById('bgmPlayer');
+const musicBtn = document.getElementById('musicBtn');
+
+function toggleMusic() {
+    musicPlaying = !musicPlaying;
+    if (musicPlaying) {
+        bgmPlayer.play().catch(() => {
+            musicPlaying = false;
+            musicBtn.classList.remove('playing');
+        });
+        musicBtn.classList.add('playing');
+    } else {
+        bgmPlayer.pause();
+        musicBtn.classList.remove('playing');
+    }
+}
+
+// ===== Cinema Experience =====
+let cinemaStarted = false;
+
+function startCinema() {
+    if (cinemaStarted) return;
+    cinemaStarted = true;
+
+    const overlay = document.getElementById('cinemaOverlay');
+    overlay.classList.add('hidden');
+
+    // 自动播放音乐
+    if (!musicPlaying) toggleMusic();
+
+    // 滚动到顶部开始体验
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // 逐段展示内容
+    setTimeout(() => revealParagraphs(), 500);
+}
+
+function revealParagraphs() {
+    const paragraphs = document.querySelectorAll('.letter-body p, .letter-body .quote, .letter-body .separator, .letter-body .highlight, .birthday-hero-content, .section-header, .fusion-item, .blessing-box, .contact-cta-inner');
+
+    paragraphs.forEach((el, i) => {
+        el.classList.add('cinema-paragraph');
+        setTimeout(() => {
+            el.classList.add('visible');
+            // 滚动到当前段落位置
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 800 + i * 1200);
+    });
+}
+
+// Auto-start cinema if already unlocked and visible
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if page is already unlocked (for testing)
+    if (document.getElementById('lockedOverlay').classList.contains('hidden')) {
+        // Auto-show cinema overlay
+        // (it's visible by default unless unlocked later)
+    }
 });
 </script>
 
