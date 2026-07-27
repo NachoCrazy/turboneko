@@ -15,6 +15,9 @@
     </noscript>
     <style>
         /* ===== Birthday-specific styles ===== */
+        /* ===== Locked state: prevent body scroll ===== */
+        body.locked { overflow: hidden; height: 100%; position: fixed; width: 100%; }
+
         .locked-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -25,7 +28,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 40px 24px;
+            padding: 32px 20px;
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
         .locked-overlay.hidden {
@@ -34,8 +37,8 @@
             pointer-events: none;
         }
         .locked-icon {
-            font-size: 72px;
-            margin-bottom: 24px;
+            font-size: clamp(48px, 12vw, 72px);
+            margin-bottom: 20px;
             animation: lockPulse 2s ease-in-out infinite;
         }
         @keyframes lockPulse {
@@ -43,34 +46,37 @@
             50% { transform: scale(1.1); opacity: 1; }
         }
         .locked-title {
-            font-size: clamp(28px, 5vw, 42px);
+            font-size: clamp(22px, 6vw, 42px);
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary-light), var(--pink, #EC4899));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
         .locked-subtitle {
-            font-size: 16px;
+            font-size: clamp(13px, 3vw, 16px);
             color: var(--text-dim);
-            margin-bottom: 32px;
-            max-width: 400px;
+            margin-bottom: 28px;
+            max-width: 380px;
+            line-height: 1.6;
         }
         .countdown-wrap {
             display: flex;
-            gap: 20px;
+            gap: clamp(12px, 4vw, 20px);
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
         }
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 72px;
+            min-width: clamp(48px, 12vw, 72px);
         }
         .countdown-num {
-            font-size: 48px;
+            font-size: clamp(28px, 10vw, 48px);
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary), var(--cyan));
             -webkit-background-clip: text;
@@ -79,18 +85,18 @@
             line-height: 1;
         }
         .countdown-label {
-            font-size: 11px;
+            font-size: clamp(10px, 2.5vw, 11px);
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 6px;
+            margin-top: 4px;
         }
         .locked-teaser {
-            font-size: 13px;
+            font-size: clamp(12px, 2.8vw, 13px);
             color: var(--text-muted);
-            max-width: 320px;
+            max-width: 300px;
             line-height: 1.8;
-            padding: 16px 20px;
+            padding: 14px 18px;
             border: 1px solid var(--border);
             border-radius: 8px;
             background: rgba(139,92,246,0.04);
@@ -840,13 +846,25 @@
     const TARGET = new Date(2026, 7, 3, 0, 0, 0);
     const overlay = document.getElementById('lockedOverlay');
     const mainContent = document.getElementById('mainContent');
+    const body = document.body;
+
+    function unlockPage() {
+        overlay.classList.add('hidden');
+        mainContent.classList.add('unlocked');
+        body.classList.remove('locked');
+        // 恢复滚动
+        body.style.overflow = '';
+        body.style.height = '';
+        body.style.position = '';
+        body.style.width = '';
+        return true;
+    }
 
     function updateCountdown() {
         const now = new Date();
         const diff = TARGET - now;
         if (diff <= 0) {
-            overlay.classList.add('hidden');
-            mainContent.classList.add('unlocked');
+            unlockPage();
             return true;
         }
         document.getElementById('countDays').textContent = String(Math.floor(diff / (1000*60*60*24))).padStart(2,'0');
@@ -856,6 +874,8 @@
         return false;
     }
 
+    // 初始状态：锁定 → 禁止滚动
+    body.classList.add('locked');
     if (!updateCountdown()) {
         setInterval(updateCountdown, 1000);
     }
