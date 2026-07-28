@@ -39,7 +39,7 @@
     <div class="nav-right">
         <ul class="nav-links">
             <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
-            <li><a href="#about" data-i18n="nav_about">About</a></li>
+            <li><a href="/about/" data-i18n="nav_about">About</a></li>
             <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
             <li><a href="cars/" data-i18n="nav_cars">Cars</a></li>
             <li><a href="#techstack" data-i18n="nav_techstack">Tech Stack</a></li>
@@ -64,7 +64,7 @@
         </svg>
     </button>
     <a href="#home" data-i18n="nav_home">Home</a>
-    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="/about/" data-i18n="nav_about">About</a>
     <a href="#projects" data-i18n="nav_projects">Projects</a>
     <a href="#techstack" data-i18n="nav_techstack">Tech Stack</a>
     <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -116,12 +116,17 @@
                 既有涡轮增压般的爆发力与机械美学，<br>
                 也有猫咪般的灵动创意与破格思维。
             </p>
-            <a href="#projects" class="about-btn">
-                <span data-i18n="about_btn">View Our Projects</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <a href="/about/" class="about-btn">
+                    <span data-i18n="about_btn">了解更多</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <button class="about-btn" onclick="openJoinModal()" style="border-color:var(--primary);background:rgba(139,92,246,0.06);color:var(--primary-light);">
+                    <span>🤝 <span data-i18n="join_btn">加入我们</span></span>
+                </button>
+            </div>
             <p class="about-disclaimer" data-i18n="about_disclaimer">
                 本网站使用的蔚蓝档案相关角色二创图为非官方创作，仅作展示使用，未进行商业用途。
             </p>
@@ -363,7 +368,7 @@
         <div class="footer-col fade-up delay-1">
             <h5 data-i18n="footer_links">Quick Links</h5>
             <ul class="footer-links">
-                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="/about/" data-i18n="nav_about">About</a></li>
                 <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
                 <li><a href="#techstack" data-i18n="nav_techstack">Tech Stack</a></li>
                 <li><a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a></li>
@@ -490,6 +495,211 @@
 }
 </style>
 
-<script src="script.js?v=5"></script>
-</body>
-</html>
+<!-- ========== 🤝 加入我们弹窗 ========== -->
+<div class="join-modal-overlay" id="joinModal" onclick="closeJoinModal(event)">
+    <div class="join-modal" onclick="event.stopPropagation()">
+        <button class="join-modal-close" onclick="closeJoinModal()">✕</button>
+        <div class="join-modal-icon">🤝</div>
+        <h3 data-i18n="join_title">加入 TurboNeko Studio</h3>
+        <p class="join-modal-desc" data-i18n="join_desc">
+            无论你是技术宅、车迷、二次元同好，<br>
+            还是单纯想找个地方一起整活——
+        </p>
+        <div class="join-options">
+            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=691897325&jump_from=webapi&authKey=7Y2HZLXXp9VDkJtRqQ92N8l6aGq5VCWN5/Gq+xNGP40Dys1tE2PAIq+9s7s/YMjt" target="_blank" class="join-card" rel="noopener">
+                <span class="join-card-icon">💬</span>
+                <span class="join-card-info">
+                    <span class="join-card-label" data-i18n="join_qq_label">QQ 群</span>
+                    <span class="join-card-value">691897325</span>
+                    <span class="join-card-hint" data-i18n="join_qq_hint">点击一键加群</span>
+                </span>
+                <span class="join-card-arrow">→</span>
+            </a>
+            <a href="mailto:xkh2008@outlook.com?subject=我想加入TurboNeko Studio" class="join-card">
+                <span class="join-card-icon">📧</span>
+                <span class="join-card-info">
+                    <span class="join-card-label" data-i18n="join_email_label">Email</span>
+                    <span class="join-card-value">xkh2008@outlook.com</span>
+                    <span class="join-card-hint" data-i18n="join_email_hint">发送邮件加入</span>
+                </span>
+                <span class="join-card-arrow">→</span>
+            </a>
+        </div>
+        <p class="join-modal-footer" data-i18n="join_footer">
+            不跟风，不将就，不画大饼。<br>
+            Speed Meets Style. 🚀
+        </p>
+    </div>
+</div>
+
+<style>
+/* ===== Join Modal ===== */
+.join-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 99999;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: modalFadeIn 0.3s ease;
+}
+.join-modal-overlay.open { display: flex; }
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.join-modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 36px 32px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    animation: modalSlideIn 0.35s cubic-bezier(.22,1,.36,1);
+}
+@keyframes modalSlideIn {
+    from { transform: translateY(20px) scale(0.95); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.join-modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+}
+.join-modal-close:hover {
+    border-color: rgba(139,92,246,0.3);
+    color: var(--primary-light);
+    background: rgba(139,92,246,0.06);
+}
+.join-modal-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+.join-modal h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.join-modal-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+.join-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.join-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    text-align: left;
+}
+.join-card:hover {
+    border-color: rgba(139,92,246,0.25);
+    background: rgba(139,92,246,0.03);
+    transform: translateX(4px);
+}
+.join-card-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(139,92,246,0.06);
+    border: 1px solid rgba(139,92,246,0.1);
+}
+.join-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.join-card-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.join-card-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin: 2px 0;
+}
+.join-card-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+.join-card-arrow {
+    color: var(--text-muted);
+    font-size: 18px;
+    transition: all 0.3s;
+}
+.join-card:hover .join-card-arrow {
+    color: var(--primary);
+    transform: translateX(4px);
+}
+.join-modal-footer {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+</style>
+
+<script>
+// ===== Join Modal =====
+function openJoinModal() {
+    document.getElementById('joinModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeJoinModal(e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('joinModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+// ESC key to close
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('joinModal');
+        if (modal.classList.contains('open')) {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+});
+</script>

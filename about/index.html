@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <link rel="icon" href="/avatar/logo.jpg" type="image/jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 — TurboNeko Studio</title>
+    <meta name="description" content="TurboNeko Studio — 速度即风格。一个融合二次元、汽车文化与科技创意的创意厂牌。">
+    <link rel="preload" href="/style.css?v=5" as="style">
+    <link rel="stylesheet" href="/style.css?v=5">
+    <noscript>
+        <style>
+            .js-enabled .fade-up { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
+    <style>
+        .about-page { padding: 120px 56px 80px; max-width: 960px; margin: 0 auto; }
+        .about-page .section-label { margin-bottom: 20px; }
+        .about-page h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .about-page h1 .accent { color: var(--primary); }
+        .about-page .subtitle {
+            font-size: 16px;
+            color: var(--text-dim);
+            margin-bottom: 48px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .about-block {
+            margin-bottom: 48px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--bg-card);
+            transition: border-color 0.3s;
+        }
+        .about-block:hover { border-color: rgba(139,92,246,0.15); }
+
+        .about-block h2 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .about-block h2 .emoji { font-size: 28px; }
+        .about-block p {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.9;
+        }
+        .about-block .highlight-text {
+            font-size: 15px;
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .service-card {
+            padding: 24px 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(10,10,20,0.4);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: rgba(139,92,246,0.2);
+            transform: translateY(-4px);
+        }
+        .service-card .icon { font-size: 36px; margin-bottom: 12px; }
+        .service-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .service-card p { font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+
+        .motto-box {
+            margin: 48px 0;
+            padding: 40px 32px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139,92,246,0.04), rgba(56,189,248,0.02));
+        }
+        .motto-box .quote {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .motto-box .quote-sub {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+        .motto-box .tagline {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-light);
+            letter-spacing: 2px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 48px 0;
+        }
+        .cta-section p {
+            font-size: 14px;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .about-page { padding: 100px 20px 60px; }
+            .about-block { padding: 24px 20px; }
+            .service-cards { grid-template-columns: 1fr; }
+            .motto-box { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="nav-left">
+        <a href="/" class="nav-logo">
+            <div class="nav-logo-img-wrap">
+                <img src="/logo.png" alt="TurboNeko Studio">
+            </div>
+        </a>
+    </div>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="/">首页</a></li>
+            <li><a href="/about/" class="active">关于</a></li>
+            <li><a href="/#projects">项目展示</a></li>
+            <li><a href="/cars/">四车产品线</a></li>
+            <li><a href="/#techstack">技术栈</a></li>
+            <li><a href="/#contact">联系</a></li>
+        </ul>
+        <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+    </button>
+    <a href="/">首页</a>
+    <a href="/about/">关于</a>
+    <a href="/#projects">项目展示</a>
+    <a href="/#techstack">技术栈</a>
+    <a href="/#contact">联系</a>
+</div>
+
+<!-- ====== Content ====== -->
+<section class="about-page">
+    <div class="section-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+        <span>About Us</span>
+    </div>
+    <h1>TurboNeko Studio — <span class="accent">速度即风格</span></h1>
+    <p class="subtitle">"燃油在左，幻想在右。我们活在两者的交界处。"</p>
+
+    <!-- Who We Are -->
+    <div class="about-block">
+        <h2><span class="emoji">🏎️</span> 我们是谁？</h2>
+        <p class="highlight-text">
+            TurboNeko Studio 是一个把二次元幻想、硬核汽车文化和前沿科技揉在一起的创意厂牌。
+        </p>
+        <p>
+            名字里的 <strong>Turbo</strong> 代表涡轮增压般的爆发力与机械美学——我们追求性能、速度、改装的极致；
+            <strong>Neko</strong> 代表猫咪般的灵动创意与破格思维——我们拒绝死板，拥抱想象。
+        </p>
+    </div>
+
+    <!-- What We Do -->
+    <div class="about-block">
+        <h2><span class="emoji">⚡</span> 我们做什么？</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <div class="icon">🚗</div>
+                <h3>汽车文化内容</h3>
+                <p>从经典JDM到新能源性能车，<br>改装方案、车型解析、驾驶文化</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🎨</div>
+                <h3>二次元创意融合</h3>
+                <p>角色设计、视觉风格、IP联动，<br>让机械也有灵魂</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">💻</div>
+                <h3>科技前沿探索</h3>
+                <p>开源工具、智能交互、数字体验，<br>用代码驱动创意</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attitude -->
+    <div class="motto-box">
+        <div class="quote">不跟风，不将就，不画大饼。</div>
+        <div class="quote-sub">我们相信：真正的好东西，是踩过坑、拧过螺丝、熬过夜之后磨出来的。</div>
+        <div class="tagline">TurboNeko Studio · Speed Meets Style · 速度即风格</div>
+    </div>
+
+    <!-- Join CTA -->
+    <div class="cta-section">
+        <p>想一起整活？欢迎加入我们 🚀</p>
+        <button class="about-btn" onclick="openJoinModal()" style="border-color:var(--primary);background:rgba(139,92,246,0.06);color:var(--primary-light);display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;">
+            <span>🤝 加入我们</span>
+        </button>
+        <div style="margin-top:16px;">
+            <a href="/" class="about-btn" style="display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all 0.3s;text-decoration:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>返回首页</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo-wrap">
+                <img src="/logo.png" alt="TurboNeko Studio">
+            </div>
+            <p>致力于二次元文化、汽车文化与科技创意的跨界融合。<br>通过视觉、产品与游戏，打造速度与风格并存的独特体验。</p>
+        </div>
+        <div class="footer-col">
+            <h5>Quick Links</h5>
+            <ul class="footer-links">
+                <li><a href="/about/">About</a></li>
+                <li><a href="/#projects">Projects</a></li>
+                <li><a href="/#techstack">Tech Stack</a></li>
+                <li><a href="https://github.com/nachocrazy" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>Follow Us</h5>
+            <div class="social-icons">
+                <a href="https://github.com/nachocrazy" title="GitHub" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://space.bilibili.com/1800466245" title="Bilibili" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+                </a>
+                <a href="mailto:xkh2008@outlook.com" title="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                </a>
+            </div>
+            <h5>Contact</h5>
+            <div class="contact-info">
+                <p>xkh2008@outlook.com</p>
+                <p>Hefei, China</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TurboNeko Studio. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- ===== Join Modal ===== -->
+<div class="join-modal-overlay" id="joinModal" onclick="closeJoinModal(event)">
+    <div class="join-modal" onclick="event.stopPropagation()">
+        <button class="join-modal-close" onclick="closeJoinModal()">✕</button>
+        <div class="join-modal-icon">🤝</div>
+        <h3>加入 TurboNeko Studio</h3>
+        <p class="join-modal-desc">
+            无论你是技术宅、车迷、二次元同好，<br>
+            还是单纯想找个地方一起整活——
+        </p>
+        <div class="join-options">
+            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=691897325&jump_from=webapi&authKey=7Y2HZLXXp9VDkJtRqQ92N8l6aGq5VCWN5/Gq+xNGP40Dys1tE2PAIq+9s7s/YMjt" target="_blank" class="join-card" rel="noopener">
+                <span class="join-card-icon">💬</span>
+                <span class="join-card-info">
+                    <span class="join-card-label">QQ 群</span>
+                    <span class="join-card-value">691897325</span>
+                    <span class="join-card-hint">点击一键加群</span>
+                </span>
+                <span class="join-card-arrow">→</span>
+            </a>
+            <a href="mailto:xkh2008@outlook.com?subject=我想加入TurboNeko Studio" class="join-card">
+                <span class="join-card-icon">📧</span>
+                <span class="join-card-info">
+                    <span class="join-card-label">Email</span>
+                    <span class="join-card-value">xkh2008@outlook.com</span>
+                    <span class="join-card-hint">发送邮件加入</span>
+                </span>
+                <span class="join-card-arrow">→</span>
+            </a>
+        </div>
+        <p class="join-modal-footer">
+            不跟风，不将就，不画大饼。<br>
+            Speed Meets Style. 🚀
+        </p>
+    </div>
+</div>
+
+<style>
+/* ===== Join Modal (same as homepage) ===== */
+.join-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 99999;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: modalFadeIn 0.3s ease;
+}
+.join-modal-overlay.open { display: flex; }
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.join-modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 36px 32px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    animation: modalSlideIn 0.35s cubic-bezier(.22,1,.36,1);
+}
+@keyframes modalSlideIn {
+    from { transform: translateY(20px) scale(0.95); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.join-modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+}
+.join-modal-close:hover {
+    border-color: rgba(139,92,246,0.3);
+    color: var(--primary-light);
+    background: rgba(139,92,246,0.06);
+}
+.join-modal-icon { font-size: 48px; margin-bottom: 16px; }
+.join-modal h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.join-modal-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+.join-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.join-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    text-align: left;
+}
+.join-card:hover {
+    border-color: rgba(139,92,246,0.25);
+    background: rgba(139,92,246,0.03);
+    transform: translateX(4px);
+}
+.join-card-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(139,92,246,0.06);
+    border: 1px solid rgba(139,92,246,0.1);
+}
+.join-card-info { flex: 1; display: flex; flex-direction: column; }
+.join-card-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.join-card-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin: 2px 0;
+}
+.join-card-hint { font-size: 11px; color: var(--text-muted); }
+.join-card-arrow { color: var(--text-muted); font-size: 18px; transition: all 0.3s; }
+.join-card:hover .join-card-arrow { color: var(--primary); transform: translateX(4px); }
+.join-modal-footer {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+</style>
+
+<script>
+function openJoinModal() {
+    document.getElementById('joinModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeJoinModal(e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('joinModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        var modal = document.getElementById('joinModal');
+        if (modal.classList.contains('open')) {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+});
+// Enable JS animations
+document.documentElement.classList.add('js-enabled');
+// Fade in blocks
+document.addEventListener('DOMContentLoaded', function() {
+    var els = document.querySelectorAll('.about-block, .motto-box, .cta-section');
+    els.forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    });
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.08 });
+    els.forEach(function(el) { observer.observe(el); });
+});
+</script>
+
+</body>
+</html>
