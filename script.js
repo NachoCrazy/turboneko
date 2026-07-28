@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const translations = {
         zh: {
             nav_home: '首页', nav_about: '关于', nav_projects: '项目展示', nav_cars: '四车产品线',
-            nav_techstack: '技术栈', nav_contact: '联系',
+            nav_techstack: '技术栈', nav_blog: '博客', nav_contact: '联系',
             hero_desc: '我们将二次元的幻想、汽车的速度与<br>科技的未来感融合，创造独特的视觉与体验。',
             hero_btn: '探索更多', scroll_down: '向下滚动',
             about_label: '关于我们',
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         en: {
             nav_home: 'Home', nav_about: 'About', nav_projects: 'Projects',
-            nav_cars: 'Car Lineup', nav_techstack: 'Tech Stack', nav_contact: 'Contact',
+            nav_cars: 'Car Lineup', nav_techstack: 'Tech Stack', nav_blog: 'Blog', nav_contact: 'Contact',
             hero_desc: 'We blend anime fantasies, automotive speed, and<br>cutting-edge tech to create unique visual experiences.',
             hero_btn: 'Explore More', scroll_down: 'Scroll Down',
             about_label: 'About Us',
